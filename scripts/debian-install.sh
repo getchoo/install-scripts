@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo apt remove thunderbird hexchat rhythmbox -y
+sudo apt remove rhythmbox -y
 sudo dpkg -r gnome-games -y
 sudo apt update
 sudo apt autoremove -y
@@ -16,22 +16,19 @@ echo "system upgraded"
 
 sudo apt install chromium -y
 sudo apt remove firefox-esr -y
-sudo apt install neofetch htop transmission firefox git make flatpak gnome-software-plugin-flatpak -y
+sudo apt install neofetch firefox git flatpak gnome-software-plugin-flatpak -y
 sudo apt remove chromium -y
 echo "packages installed"
 
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo -y
 flatpak update
 flatpak install flathub com.spotify.client -y
-flatpak install com.discordapp.Discord -y
+flatpak install flathub com.discordapp.Discord -y
 echo "flatpak apps installed"
 
 killall gnome-software
 rm -rf ~/.cache/gnome-software
 echo "gnome software reloaded"
-
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
-echo "oh my bash installed"
 
 sudo apt update -y
 sudo apt full-upgrade -y
