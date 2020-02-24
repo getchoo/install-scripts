@@ -15,7 +15,7 @@ killall gnome-software
 rm -rf ~/.cache/gnome-software
 echo "gnome software reloaded"
 
-sudo dnf install neofetch gnome-tweaks -y
+sudo dnf install neofetch gnome-tweaks vim -y
 flatpak update
 flatpak install flathub com.spotify.client
 flatpak install flathub com.discordapp.Discord
