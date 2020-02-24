@@ -16,7 +16,7 @@ echo "system upgraded"
 
 sudo apt install chromium -y
 sudo apt remove firefox-esr -y
-sudo apt install neofetch firefox git flatpak gnome-software-plugin-flatpak -y
+sudo apt install neofetch firefox git vim flatpak gnome-software-plugin-flatpak -y
 sudo apt remove chromium -y
 echo "packages installed"
 
