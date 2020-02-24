@@ -6,7 +6,7 @@ echo "base packages removed"
 sudo eopkg up -y
 echo "inital upgrade complete"
 
-sudo eopkg it neofetch transmission albert menulibre vim -y
+sudo eopkg it neofetch menulibre vim -y
 clear
 echo "base packages installed"
 
