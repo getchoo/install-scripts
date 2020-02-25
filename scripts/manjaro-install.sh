@@ -12,6 +12,9 @@ echo "system upgraded"
 pacman -Rns --noconfirm $(pacman -Qtdq)
 echo "orphan packages removed"
 
+sudo pacman -S yay ranger flameshot gimp zsh vim wine winetricks
+echo "packages installed"
+
 sudo pacman -Syyu --noconfirm
 echo "final repo sync complete"
 
