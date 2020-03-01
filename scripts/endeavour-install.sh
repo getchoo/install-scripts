@@ -12,14 +12,14 @@ echo "system updated"
 ## delete packages i dont like
  
 echo "deleting extra packages"
-sudo pacman -Rns epiphany gnome-books gnome-calculator gnome-boxes gnome-calendar gnome-contacts gnome-getting-started-docs gnome-maps gnome-multi-writer gnome-music gnome-nettool gnome-todo gnome-packagekit hardinfo xterm
+sudo pacman -Rns epiphany gnome-books gnome-calculator gnome-boxes gnome-calendar gnome-contacts gnome-getting-started-docs gnome-maps gnome-multi-writer gnome-music gnome-nettool gnome-todo gnome-packagekit hardinfo xterm gnome-software
 echo "packages deleted"
 
 
 ## install packages i do like
 
 echo "installing packages"
-sudo pacman -S yay ranger flameshot gimp vim zsh flatpak
+sudo pacman -S yay ranger flameshot gimp vim zsh flatpak alacarte
 yay -S bauh pamac-aur
 echo "packages installed"
 
