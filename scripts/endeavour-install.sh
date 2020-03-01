@@ -19,7 +19,8 @@ echo "packages deleted"
 ## install packages i do like
 
 echo "installing packages"
-sudo pacman -S yay ranger flameshot gimp vim zsh 
+sudo pacman -S yay ranger flameshot gimp vim zsh flatpak
+yay -S bauh pamac-aur
 echo "packages installed"
 
 
@@ -37,7 +38,7 @@ echo "done"
 
 
 ## remove orphans
-pacman -Rns --noconfirm $(pacman -Qtdq)
+sudo pacman -Rns --noconfirm $(pacman -Qtdq)
 echo "orphans removed"
 
 
