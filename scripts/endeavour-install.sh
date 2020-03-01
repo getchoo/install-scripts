@@ -19,7 +19,7 @@ echo "packages deleted"
 ## install packages i do like
 
 echo "installing packages"
-sudo pacman -S yay ranger flameshot gimp vim zsh flatpak alacarte
+sudo pacman -S yay ranger gimp vim zsh flatpak alacarte
 yay -S bauh pamac-aur
 echo "packages installed"
 
