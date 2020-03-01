@@ -19,8 +19,8 @@ echo "packages deleted"
 ## install packages i do like
 
 echo "installing packages"
-sudo pacman -S yay ranger gimp vim zsh flatpak alacarte
-yay -S bauh pamac-aur
+sudo pacman -S yay ranger gimp vim zsh flatpak alacarte git
+yay -S bauh pamac-aur gnome-session-properties
 echo "packages installed"
 
 
@@ -37,13 +37,21 @@ wget -O ~/.zshrc https://gist.githubusercontent.com/LukeSmithxyz/e62f26e55ea8b0e
 echo "done"
 
 
+## add battery wallpaper
+echo "installing battery wallpaper"
+cd ~/Downloads 
+git clone https://github.com/adi1090x/battery-wallpaper
+cd battery-wallpaper
+chmod +x install.sh
+./install.sh
+echo "battery wallpaper installed"
+
 ## remove orphans
 sudo pacman -Rns --noconfirm $(pacman -Qtdq)
 echo "orphans removed"
 
 
 ## final update
-
 echo "updating system again"
 sudo pacman -Syyu --noconfirm
 echo "done"
