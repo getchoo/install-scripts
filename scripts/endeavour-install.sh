@@ -35,6 +35,9 @@ echo "done"
 echo "adding papa luke's zsh config"	
 wget -O ~/.zshrc https://gist.githubusercontent.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52/raw/2a93cca1ea82cecfc2bd6dcd2eff700a95c7581e/zshrc
 echo "done"
+echo "add alias for orphan packages"
+alias orphan='sudo pacman -Rns $(pacman -Qtdq)'
+echo "done"
 
 
 ## remove orphans
