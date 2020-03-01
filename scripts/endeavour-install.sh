@@ -12,7 +12,7 @@ echo "system updated"
 ## delete packages i dont like
  
 echo "deleting extra packages"
-sudo pacman -Rns epiphany gnome-books gnome-calculator gnome-boxes gnome-calendar gnome-contacts gnome-getting-started-docs gnome-maps gnome-multi-writer gnome-music gnome-nettool gnome-todo gnome-packagekit hardinfo xterm gnome-software
+sudo pacman -Rns epiphany gnome-books gnome-calculator gnome-boxes gnome-calendar gnome-contacts gnome-getting-started-docs gnome-maps gnome-multi-writer gnome-music gnome-nettool gnome-todo gnome-packagekit hardinfo xterm gnome-software gnome-software-packagekit-plugin 
 echo "packages deleted"
 
 
