@@ -40,7 +40,7 @@ echo "--------------------- gnome software reloaded ---------------------"
 ## install packages
 
 echo "--------------------- installing packages ---------------------"
-sudo dnf install neofetch gnome-tweaks vim -y
+sudo dnf install neofetch gnome-tweaks vim zsh -y
 flatpak update
 flatpak install flathub com.spotify.client
 flatpak install flathub com.discordapp.Discord
@@ -64,6 +64,22 @@ sudo dnf install plymouth-theme-charge -y
 sudo plymouth-set-default-theme charge -R
 clear
 echo "plymouth themed changed to charge. initrd rebuilt."
+
+
+## set new shell for user
+
+echo "--------------------- setting new shell for user ---------------------"
+chsh -s /bin/zsh
+clear
+echo "--------------------- done ---------------------" 
+
+
+## customize zsh
+
+echo "--------------------- adding papa luke's zsh config ---------------------"	
+wget -O ~/.zshrc https://gist.githubusercontent.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52/raw/2a93cca1ea82cecfc2bd6dcd2eff700a95c7581e/zshrc
+clear
+echo "--------------------- done ---------------------"
 
 
 ## upgrade system again
