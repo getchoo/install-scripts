@@ -20,7 +20,7 @@ echo "packages deleted"
 
 echo "installing packages"
 sudo pacman -S yay ranger gimp vim zsh flatpak alacarte git
-yay -S bauh pamac-aur gnome-session-properties
+yay -S bauh pamac-aur gnome-session-properties ttf-ms-fonts
 echo "packages installed"
 
 
