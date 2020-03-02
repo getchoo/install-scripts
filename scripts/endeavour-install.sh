@@ -4,50 +4,48 @@
 
 ## initial upgrade
 
-echo "updating system"
+echo "--------------------- updating system ---------------------"
 sudo pacman -Syyu
-echo "system updated"
+clear
+echo "--------------------- system updated ---------------------"
 
 
 ## delete packages i dont like
  
-echo "deleting extra packages"
+echo "--------------------- deleting extra packages ---------------------"
 sudo pacman -Rns epiphany gnome-books gnome-calculator gnome-boxes gnome-calendar gnome-contacts gnome-getting-started-docs gnome-maps gnome-multi-writer gnome-music gnome-nettool gnome-todo gnome-packagekit hardinfo xterm gnome-software gnome-software-packagekit-plugin 
-echo "packages deleted"
+clear
+echo "--------------------- packages deleted ---------------------"
 
 
 ## install packages i do like
 
-echo "installing packages"
+echo "--------------------- installing packages ---------------------"
 sudo pacman -S yay ranger gimp vim zsh flatpak alacarte git
 yay -S bauh pamac-aur gnome-session-properties ttf-ms-fonts
-echo "packages installed"
+clear
+echo "--------------------- packages installed---------------------"
 
 
 ## set new shell for user
 
-echo "setting new shell for user"
+echo "--------------------- setting new shell for user ---------------------"
 chsh -s /bin/zsh
-echo "done" 
+echo "--------------------- done ---------------------" 
 
 
 ## customize zsh
-echo "adding papa luke's zsh config"	
+
+echo "--------------------- adding papa luke's zsh config ---------------------"	
 wget -O ~/.zshrc https://gist.githubusercontent.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52/raw/2a93cca1ea82cecfc2bd6dcd2eff700a95c7581e/zshrc
-echo "done"
+clear
+echo "--------------------- done ---------------------"
 
-
-## add battery wallpaper
-echo "installing battery wallpaper"
-cd ~/Downloads 
-git clone https://github.com/adi1090x/battery-wallpaper
-cd battery-wallpaper
-chmod +x install.sh
-./install.sh
-echo "battery wallpaper installed"
 
 ## remove orphans
+echo "--------------------- removing orphans ---------------------"
 sudo pacman -Rns --noconfirm $(pacman -Qtdq)
+clear
 echo "orphans removed"
 
 
