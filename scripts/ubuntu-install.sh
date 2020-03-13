@@ -48,7 +48,7 @@ echo "--------------------- done ---------------------"
 
 ## add dotfiles
 
-echo "--------------------- adding dot files ---------------------"
+echo "--------------------- adding dotfiles ---------------------"
 git clone https://github.com/sethfl/dotfiles.git
 cd dotfiles
 cp -r home/* ~/
