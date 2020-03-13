@@ -21,20 +21,18 @@ echo "--------------------- base packages removed ---------------------"
 ## add packages i do like
 
 echo "--------------------- installing packages ---------------------"
-sudo eopkg it neofetch vim zsh discord flatpak -y
+sudo eopkg it git neofetch vim zsh gtkhash nautilus-dropbox flatpak -y
 clear
 echo "--------------------- base packages installed ---------------------"
 
 
 ## install flatpak apps
 
-echo "--------------------- installing flatpak apps ---------------------"
+echo "--------------------- installing flathub repo ---------------------"
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak update
-flatpak install com.dropbox.Client -y
-flatpak install com.spotify.Client -y
 clear 
-echo "--------------------- flatpak apps installed ---------------------"
+echo "--------------------- flathub repo installed ---------------------"
 
 
 ## install microsoft fonts
@@ -54,9 +52,15 @@ clear
 echo "--------------------- done ---------------------" 
 
 
-## customize zsh
+## add dotfile
 
 echo "--------------------- adding dot files ---------------------"	
+git clone https://github.com/sethfl/dotfiles.git
+cd dotfiles
+cp -r home/* ~/
+cd ..
+rm -rf dotfiles
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 clear
 echo "--------------------- done ---------------------"
 
