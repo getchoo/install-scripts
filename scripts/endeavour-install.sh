@@ -27,6 +27,15 @@ clear
 echo "--------------------- packages installed---------------------"
 
 
+## install flathub repo
+
+echo "--------------------- installing flathub repo ---------------------"
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak update
+clear
+echo "--------------------- flathub repo installed ---------------------"
+
+
 ## set new shell for user
 
 echo "--------------------- setting new shell for user ---------------------"
@@ -34,10 +43,15 @@ chsh -s /bin/zsh
 echo "--------------------- done ---------------------" 
 
 
-## customize zsh
+## add dotfiles
 
-echo "--------------------- adding papa luke's zsh config ---------------------"	
-wget -O ~/.zshrc https://gist.githubusercontent.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52/raw/2a93cca1ea82cecfc2bd6dcd2eff700a95c7581e/zshrc
+echo "--------------------- adding dot files ---------------------"
+git clone https://github.com/sethfl/dotfiles.git
+cd dotfiles
+cp -r home/* ~/
+cd ..
+rm -rf dotfiles
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 clear
 echo "--------------------- done ---------------------"
 

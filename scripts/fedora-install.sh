@@ -42,8 +42,7 @@ echo "--------------------- gnome software reloaded ---------------------"
 
 echo "--------------------- installing packages ---------------------"
 sudo dnf remove libreoffice-x11
-sudo dnf install htop vim -y
-sudo dnf copr enable atim/nushell -y && sudo dnf install nushell -y
+sudo dnf install htop vim zsh -y
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak update
 flatpak install flathub com.spotify.client
@@ -73,22 +72,22 @@ echo "plymouth themed changed to charge. initrd rebuilt."
 ## set new shell for user
 
 echo "--------------------- setting new shell for user ---------------------"
-chsh -s /bin/nu
+chsh -s /bin/zsh
 clear
 echo "--------------------- done ---------------------" 
 
 
-## customize zsh
+## add dotfiles
 
-# echo "--------------------- cusotmizing zsh.... ---------------------"	
-# sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-# git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-# upgrade_oh_my_zsh
-# git clone https://github.com/ryanoasis/nerd-fonts.git
-# mkdir ~/.local/share/fonts
-# cp nerd-fonts/patched-fonts/Hack/Regular/complete/'Hack Regular Nerd Font Complete.ttf' ~/.local/share/fonts
-# clear
-# echo "--------------------- done ---------------------"
+echo "--------------------- adding dot files ---------------------"     
+git clone https://github.com/sethfl/dotfiles.git
+cd dotfiles
+cp -r home/* ~/
+cd ..
+rm -rf dotfiles
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+clear
+echo "--------------------- done ---------------------"
 
 
 ## upgrade system again

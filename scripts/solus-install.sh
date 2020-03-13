@@ -52,7 +52,7 @@ clear
 echo "--------------------- done ---------------------" 
 
 
-## add dotfile
+## add dotfiles
 
 echo "--------------------- adding dot files ---------------------"	
 git clone https://github.com/sethfl/dotfiles.git
