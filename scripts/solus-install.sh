@@ -21,7 +21,7 @@ echo "--------------------- base packages removed ---------------------"
 ## add packages i do like
 
 echo "--------------------- installing packages ---------------------"
-sudo eopkg it neofetch menulibre vim zsh discord flatpak -y
+sudo eopkg it neofetch vim zsh discord flatpak -y
 clear
 echo "--------------------- base packages installed ---------------------"
 
@@ -56,8 +56,7 @@ echo "--------------------- done ---------------------"
 
 ## customize zsh
 
-echo "--------------------- adding papa luke's zsh config ---------------------"	
-wget -O ~/.zshrc https://gist.githubusercontent.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52/raw/2a93cca1ea82cecfc2bd6dcd2eff700a95c7581e/zshrc
+echo "--------------------- adding dot files ---------------------"	
 clear
 echo "--------------------- done ---------------------"
 
