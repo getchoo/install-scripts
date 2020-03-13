@@ -23,7 +23,7 @@ echo "--------------------- rpmfusion repos installed ---------------------"
 ## add flathub
 
 echo "--------------------- adding flathub repo ---------------------"
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo -y
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak update
 clear
 echo "--------------------- flathub repo installed ---------------------"
@@ -44,6 +44,7 @@ echo "--------------------- installing packages ---------------------"
 sudo dnf remove libreoffice-x11
 sudo dnf install htop vim -y
 sudo dnf copr enable atim/nushell -y && sudo dnf install nushell -y
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak update
 flatpak install flathub com.spotify.client
 flatpak install flathub com.discordapp.Discord
