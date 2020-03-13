@@ -40,7 +40,7 @@ echo "--------------------- gnome software reloaded ---------------------"
 ## install packages
 
 echo "--------------------- installing packages ---------------------"
-sudo dnf install neofetch gnome-tweaks vim zsh -y
+sudo dnf install htop vim zsh -y
 flatpak update
 flatpak install flathub com.spotify.client
 flatpak install flathub com.discordapp.Discord
@@ -76,8 +76,13 @@ echo "--------------------- done ---------------------"
 
 ## customize zsh
 
-echo "--------------------- adding papa luke's zsh config ---------------------"	
-wget -O ~/.zshrc https://gist.githubusercontent.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52/raw/2a93cca1ea82cecfc2bd6dcd2eff700a95c7581e/zshrc
+echo "--------------------- cusotmizing zsh.... ---------------------"	
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+upgrade_oh_my_zsh
+git clone https://github.com/ryanoasis/nerd-fonts.git
+mkdir ~/.local/share/fonts
+cp nerd-fonts/patched-fonts/Hack/Regular/complete/'Hack Regular Nerd Font Complete.ttf' ~/.local/share/fonts
 clear
 echo "--------------------- done ---------------------"
 
