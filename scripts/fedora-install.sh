@@ -6,6 +6,7 @@
 
 echo "--------------------- upgrading system ---------------------"
 sudo dnf update -y
+sudo dnf upgrade -y
 clear
 echo "--------------------- initial system upgrade complete ---------------------"
 
@@ -40,7 +41,8 @@ echo "--------------------- gnome software reloaded ---------------------"
 ## install packages
 
 echo "--------------------- installing packages ---------------------"
-sudo dnf install htop vim zsh -y
+sudo dnf install htop vim -y
+sudo dnf copr enable atim/nushell -y && sudo dnf install nushell -y
 flatpak update
 flatpak install flathub com.spotify.client
 flatpak install flathub com.discordapp.Discord
@@ -69,22 +71,22 @@ echo "plymouth themed changed to charge. initrd rebuilt."
 ## set new shell for user
 
 echo "--------------------- setting new shell for user ---------------------"
-chsh -s /bin/zsh
+chsh -s /bin/nu
 clear
 echo "--------------------- done ---------------------" 
 
 
 ## customize zsh
 
-echo "--------------------- cusotmizing zsh.... ---------------------"	
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-upgrade_oh_my_zsh
-git clone https://github.com/ryanoasis/nerd-fonts.git
-mkdir ~/.local/share/fonts
-cp nerd-fonts/patched-fonts/Hack/Regular/complete/'Hack Regular Nerd Font Complete.ttf' ~/.local/share/fonts
-clear
-echo "--------------------- done ---------------------"
+# echo "--------------------- cusotmizing zsh.... ---------------------"	
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+# git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+# upgrade_oh_my_zsh
+# git clone https://github.com/ryanoasis/nerd-fonts.git
+# mkdir ~/.local/share/fonts
+# cp nerd-fonts/patched-fonts/Hack/Regular/complete/'Hack Regular Nerd Font Complete.ttf' ~/.local/share/fonts
+# clear
+# echo "--------------------- done ---------------------"
 
 
 ## upgrade system again
