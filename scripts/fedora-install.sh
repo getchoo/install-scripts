@@ -41,6 +41,7 @@ echo "--------------------- gnome software reloaded ---------------------"
 ## install packages
 
 echo "--------------------- installing packages ---------------------"
+sudo dnf remove libreoffice-x11
 sudo dnf install htop vim -y
 sudo dnf copr enable atim/nushell -y && sudo dnf install nushell -y
 flatpak update
