@@ -29,11 +29,12 @@ clear
 
 
 echo "--------------------- adding dotfiles ---------------------"
-git clone https://github.com/sethfl/dotfiles.git
-cd dotfiles
-cp -r home/* ~/
-cd ..
-rm -rf dotfiles
+mkdir ~/tmp
+git clone https://github.com/sethfl/dotfiles.git ~/tmp/
+cd ~/tmp/
+cp -r home/. ~
+cd ~
+rm -rf tmp
 clear
 echo "--------------------- done ---------------------"
 

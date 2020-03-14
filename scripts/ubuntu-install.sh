@@ -49,11 +49,12 @@ echo "--------------------- done ---------------------"
 ## add dotfiles
 
 echo "--------------------- adding dotfiles ---------------------"
-git clone https://github.com/sethfl/dotfiles.git
-cd dotfiles
-cp -r home/* ~/
-cd ..
-rm -rf dotfiles
+mkdir ~/tmp
+git clone https://github.com/sethfl/dotfiles.git ~/tmp/
+cd ~/tmp/
+cp -r home/. ~
+cd ~
+rm -rf tmp
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 clear
 echo "--------------------- done ---------------------"
