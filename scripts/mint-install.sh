@@ -5,7 +5,7 @@
 ## initial upgrade
 
 echo "--------------------- upgrading system ---------------------"
-sudo apt upgdate
+sudo apt update
 sudo apt upgrade
 sudo apt autoremove
 echo "--------------------- done ---------------------"
