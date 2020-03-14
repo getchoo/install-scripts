@@ -28,6 +28,16 @@ echo "--------------------- done ---------------------"
 clear
 
 
+echo "--------------------- adding dotfiles ---------------------"
+git clone https://github.com/sethfl/dotfiles.git
+cd dotfiles
+cp -r home/* ~/
+cd ..
+rm -rf dotfiles
+clear
+echo "--------------------- done ---------------------"
+
+
 ## clean up
 
 echo "--------------------- cleaning up system ---------------------"
