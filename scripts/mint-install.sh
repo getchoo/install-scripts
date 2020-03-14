@@ -23,7 +23,7 @@ clear
 ## add apps
 
 echo "--------------------- install extra apps ---------------------"
-sudo apt install gtkhash seashorse git vim
+sudo apt install gtkhash seahorse git vim
 echo "--------------------- done ---------------------"
 clear
 
