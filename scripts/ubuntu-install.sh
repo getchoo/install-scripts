@@ -55,7 +55,9 @@ cd ~/tmp/
 cp -r home/. ~
 cd ~
 rm -rf tmp
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/themes/powerlevel10k
+mv ~/.zshrc.pre-oh-my-zsh ~/.zshrc
 clear
 echo "--------------------- done ---------------------"
 
