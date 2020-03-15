@@ -2,13 +2,6 @@
 
 
 
-## install gnome and stuff lol
-
-echo ""--------------------- installing everything ---------------------"
-sudo pacman -S gnome vim 
-## set new shell for user
-
-
 ## set new shell 
 
 echo "--------------------- setting new shell for user ---------------------"
