@@ -44,10 +44,10 @@ echo "--------------------- installing packages ---------------------"
 sudo dnf remove libreoffice-x11
 sudo dnf install htop vim zsh -y
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak update
-flatpak install flathub com.spotify.client
+flatpak install flathub com.spotify.Client
 flatpak install flathub com.discordapp.Discord
-clear
+flatpak update
+clear 
 echo "--------------------- apps installed ---------------------"
 
 
