@@ -31,15 +31,14 @@ clear
 ## add dotfiles
 
 echo "--------------------- adding dotfiles ---------------------"
-mkdir ~/tmp
-git clone https://github.com/sethfl/dotfiles.git ~/tmp/
-cd ~/tmp/
-cp -r home/. ~
-cd ~
-rm -rf tmp
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/themes/powerlevel10k
-mv ~/.zshrc.pre-oh-my-zsh ~/.zshrc
+mkdir ~/tmp
+git clone https://github.com/sethfl/dotfiles.git ~/tmp
+cd ~/tmp
+cp -r home/. ~/
+cd ~
+rm -rf tmp
 clear
 echo "--------------------- done ---------------------"
 
