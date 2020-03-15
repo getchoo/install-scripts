@@ -21,7 +21,7 @@ echo "--------------------- base packages removed ---------------------"
 ## add packages i do like
 
 echo "--------------------- installing packages ---------------------"
-sudo eopkg it git neofetch vim zsh gtkhash nautilus-dropbox flatpak -y
+sudo eopkg it git neofetch vim zsh gtkhash seahorse nautilus-dropbox flatpak -y
 clear
 echo "--------------------- base packages installed ---------------------"
 
@@ -30,6 +30,8 @@ echo "--------------------- base packages installed ---------------------"
 
 echo "--------------------- installing flathub repo ---------------------"
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install flathub com.spotify.Client
+flatpak install flathub com.discordapp.Discord
 flatpak update
 clear 
 echo "--------------------- flathub repo installed ---------------------"
