@@ -13,11 +13,16 @@ echo "--------------------- initial system upgrade complete --------------------
 
 ## add rpm repos
 
-echo "--------------------- installing rpmfusion repos ---------------------"
-sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y 
-sudo dnf install rpmfusion-free-appstream-data rpmfusion-nonfree-appstream-data -y 
+echo "--------------------- installing extra repos ---------------------"
+sudo dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm 
+sudo dnf -y install rpmfusion-free-appstream-data rpmfusion-nonfree-appstream-data 
+sudo dnf -y update
+sudo dnf -y install rpmsphere-release
+sudo dnf -y update
+sudo rpm --import https://raw.githubusercontent.com/UnitedRPMs/unitedrpms/master/URPMS-GPG-PUBLICKEY-Fedora
+sudo dnf -y install https://github.com/UnitedRPMs/unitedrpms/releases/download/15/unitedrpms-$(rpm -E %fedora)-15.fc$(rpm -E %fedora).noarch.rpm
 clear
-echo "--------------------- rpmfusion repos installed ---------------------"
+echo "--------------------- extra repos installed ---------------------"
 
 
 ## add flathub
