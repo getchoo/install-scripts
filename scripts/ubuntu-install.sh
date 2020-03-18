@@ -21,22 +21,17 @@ echo "--------------------- orphans removed ---------------------"
 ## install packages i like
 
 echo "--------------------- installing packages ---------------------"
-sudo apt install neofetch git vim zsh -y
+sudo apt install neofetch git vim zsh nautilus-dropbox wget -y
 clear
 echo "--------------------- packages installed ---------------------"
 
 
-## install flatpak apps
+## install snap apps
 
-echo "--------------------- installing flatpak apps ---------------------"
-sudo apt install flatpak gnome-software-plugin-flatpak -y
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak update
-flatpak install com.dropbox.Client -y
-flatpak install com.spotify.Client -y
-flatpak install com.discordapp.Discord -y
-clear
-echo "--------------------- flatpak apps installed ---------------------"
+echo "--------------------- installing snap apps ---------------------"
+sudo snap install spotify
+sudo snap install discord
+echo "--------------------- snap apps installed ---------------------"
 
 
 ## set new shell for user
