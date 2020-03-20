@@ -26,11 +26,13 @@ clear
 echo "--------------------- packages installed ---------------------"
 
 
-## install snap apps
+## replace snap with flatpak
 
 echo "--------------------- installing snap apps ---------------------"
-sudo snap install spotify
-sudo snap install discord
+sudo apt purge snapd
+sudo apt install flatpak gnome-software-plugin-flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install com.spotify.Client com.discordapp.Discord
 echo "--------------------- snap apps installed ---------------------"
 
 
