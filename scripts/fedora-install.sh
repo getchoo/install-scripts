@@ -16,9 +16,6 @@ echo "--------------------- initial system upgrade complete --------------------
 echo "--------------------- installing extra repos ---------------------"
 sudo dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm 
 sudo dnf -y install rpmfusion-free-appstream-data rpmfusion-nonfree-appstream-data 
-sudo dnf -y update
-sudo dnf -y install rpmsphere-release
-sudo dnf -y update
 sudo rpm --import https://raw.githubusercontent.com/UnitedRPMs/unitedrpms/master/URPMS-GPG-PUBLICKEY-Fedora
 sudo dnf -y install https://github.com/UnitedRPMs/unitedrpms/releases/download/15/unitedrpms-$(rpm -E %fedora)-15.fc$(rpm -E %fedora).noarch.rpm
 clear
@@ -29,7 +26,6 @@ echo "--------------------- extra repos installed ---------------------"
 
 echo "--------------------- adding flathub repo ---------------------"
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak update
 clear
 echo "--------------------- flathub repo installed ---------------------"
 
@@ -51,7 +47,6 @@ sudo dnf install htop vim zsh -y
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak install flathub com.spotify.Client
 flatpak install flathub com.discordapp.Discord
-flatpak update
 clear 
 echo "--------------------- apps installed ---------------------"
 
@@ -101,7 +96,6 @@ echo "--------------------- done ---------------------"
 
 echo "--------------------- updating ---------------------"
 sudo dnf update -y
-sudo dnf upgrade -y
 clear
 echo "--------------------- system upgraded ---------------------"
 
