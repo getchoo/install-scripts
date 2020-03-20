@@ -16,8 +16,6 @@ echo "--------------------- initial system upgrade complete --------------------
 echo "--------------------- installing extra repos ---------------------"
 sudo dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm 
 sudo dnf -y install rpmfusion-free-appstream-data rpmfusion-nonfree-appstream-data 
-sudo rpm --import https://raw.githubusercontent.com/UnitedRPMs/unitedrpms/master/URPMS-GPG-PUBLICKEY-Fedora
-sudo dnf -y install https://github.com/UnitedRPMs/unitedrpms/releases/download/15/unitedrpms-$(rpm -E %fedora)-15.fc$(rpm -E %fedora).noarch.rpm
 clear
 echo "--------------------- extra repos installed ---------------------"
 
