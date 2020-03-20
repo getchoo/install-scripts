@@ -21,7 +21,7 @@ echo "--------------------- orphans removed ---------------------"
 ## install packages i like
 
 echo "--------------------- installing packages ---------------------"
-sudo apt install neofetch git vim zsh nautilus-dropbox wget ttf-mscorefonts-installer -y
+sudo apt install neofetch git vim zsh nautilus-dropbox wget ttf-mscorefonts-installer p7zip-full -y
 clear
 echo "--------------------- packages installed ---------------------"
 
