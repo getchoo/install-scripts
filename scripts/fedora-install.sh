@@ -19,8 +19,8 @@ echo "--------------------- initial system upgrade complete --------------------
 ## add rpm repos
 
 echo "--------------------- installing extra repos ---------------------"
-sudo dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm 
-sudo dnf -y install rpmfusion-free-appstream-data rpmfusion-nonfree-appstream-data 
+sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf groupupdate core
 clear
 echo "--------------------- extra repos installed ---------------------"
 
