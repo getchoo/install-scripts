@@ -5,7 +5,7 @@
 ## append dnf.conf
 
 sudo bash -c 'echo max_parallel_downloads=10 >> /etc/dnf/dnf.conf'
-sudo bas -c 'echo fastestmirror=True >> /etc/dnf/dnf.conf'
+sudo bash -c 'echo fastestmirror=True >> /etc/dnf/dnf.conf'
 
 ## upgrade system
 
