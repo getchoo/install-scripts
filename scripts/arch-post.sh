@@ -11,6 +11,13 @@ chsh -s /bin/zsh
 echo "--------------------- done ---------------------"
 
 
+## install sauce code pro font
+
+echo "--------------------- installing sauce code pro font ---------------------"
+sudo wget -P /usr/share/fonts/saucecodepro https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/SourceCodePro/Regular/complete/Sauce%20Code%20Pro%20Nerd%20Font%20Complete.ttf
+echo "--------------------- installed sauce code pro font ---------------------" 
+
+
 ## add dotfiles
 
 echo "--------------------- adding dotfiles ---------------------"

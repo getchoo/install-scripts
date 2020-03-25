@@ -36,11 +36,17 @@ echo "--------------------- flathub repo installed ---------------------"
 
 ## install microsoft fonts
 
-echo " --------------------- installing microsoft fonts ---------------------"
+echo "--------------------- installing microsoft fonts ---------------------"
 sudo eopkg bi --ignore-safety https://raw.githubusercontent.com/getsolus/3rd-party/master/desktop/font/mscorefonts/pspec.xml -y
 sudo eopkg it mscorefonts*.eopkg -y;sudo rm mscorefonts*.eopkg -y
 clear
 echo "--------------------- third party packages installed ---------------------"
+
+
+## install sauce code pro font
+echo "--------------------- installing sauce code pro font ---------------------"
+sudo wget -P /usr/share/fonts/truetype/saucecodepro https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/SourceCodePro/Regular/complete/Sauce%20Code%20Pro%20Nerd%20Font%20Complete.ttf
+echo "--------------------- installed sauce code pro font ---------------------"
 
 
 ## set new shell for user
