@@ -21,18 +21,15 @@ echo "--------------------- base packages removed ---------------------"
 ## add packages i do like
 
 echo "--------------------- installing packages ---------------------"
-sudo eopkg it git neofetch vim zsh gtkhash seahorse nautilus-dropbox flatpak -y
+sudo eopkg it git neofetch neovim zsh gtkhash seahorse nautilus-dropbox flatpak discord -y
 clear
 echo "--------------------- base packages installed ---------------------"
 
 
-## install flatpak apps
+## install flathub repo
 
 echo "--------------------- installing flathub repo ---------------------"
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub com.spotify.Client
-flatpak install flathub com.discordapp.Discord
-flatpak update
 clear 
 echo "--------------------- flathub repo installed ---------------------"
 
@@ -71,7 +68,6 @@ echo "--------------------- done ---------------------"
 ## final system upgrade and cleanup
 
 echo "--------------------- upgrading system ---------------------"
-sudo eopkg ur -y
 sudo eopkg up -y
 echo "--------------------- system upgraded ---------------------"
 echo "--------------------- cleaning up ---------------------"

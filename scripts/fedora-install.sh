@@ -4,8 +4,8 @@
 
 ## append dnf.conf
 
-sudo bash -c 'echo max_parallel_downloads=10 >> /etc/dnf/dnf.conf'
-sudo bash -c 'echo fastestmirror=True >> /etc/dnf/dnf.conf'
+sudo bash -c 'echo "max_parallel_downloads=10" >> /etc/dnf/dnf.conf'
+sudo bash -c 'echo "fastestmirror=True" >> /etc/dnf/dnf.conf'
 
 ## upgrade system
 
@@ -46,7 +46,7 @@ echo "--------------------- gnome software reloaded ---------------------"
 
 echo "--------------------- installing packages ---------------------"
 sudo dnf remove libreoffice-x11
-sudo dnf install htop vim zsh -y
+sudo dnf install htop neovim zsh -y
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak install flathub com.spotify.Client
 flatpak install flathub com.discordapp.Discord
