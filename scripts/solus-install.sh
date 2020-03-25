@@ -21,7 +21,7 @@ echo "--------------------- base packages removed ---------------------"
 ## add packages i do like
 
 echo "--------------------- installing packages ---------------------"
-sudo eopkg it git neofetch neovim zsh gtkhash seahorse nautilus-dropbox flatpak discord -y
+sudo eopkg it brave deluge discord flatpak git gtkhash neofetch neovim seahorse youtube-dl-gui zsh -y
 clear
 echo "--------------------- base packages installed ---------------------"
 
