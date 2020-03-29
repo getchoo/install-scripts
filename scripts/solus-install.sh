@@ -6,32 +6,33 @@
 
 echo "--------------------- upgrading initial system ---------------------"
 sudo eopkg up -y
-clear
 echo "--------------------- inital upgrade complete ---------------------"
+clear
 
 
 ## remove packages i dont like
 
 echo "--------------------- removing package ---------------------"
 sudo eopkg rm hexchat libreoffice-common thunderbird -y
-clear 
 echo "--------------------- base packages removed ---------------------"
+clear
 
 
 ## add packages i do like
 
 echo "--------------------- installing packages ---------------------"
-sudo eopkg it brave deluge discord flatpak git gtkhash neofetch neovim seahorse youtube-dl-gui zsh -y
-clear
+sudo eopkg it deluge discord flatpak git gtkhash lollypop neofetch neovim p7zip seahorse zsh -y
 echo "--------------------- base packages installed ---------------------"
+clear
 
 
 ## install flathub repo
 
 echo "--------------------- installing flathub repo ---------------------"
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-clear 
+flatpak install flathub com.spotify.Client
 echo "--------------------- flathub repo installed ---------------------"
+clear
 
 
 ## install microsoft fonts
@@ -39,49 +40,22 @@ echo "--------------------- flathub repo installed ---------------------"
 echo "--------------------- installing microsoft fonts ---------------------"
 sudo eopkg bi --ignore-safety https://raw.githubusercontent.com/getsolus/3rd-party/master/desktop/font/mscorefonts/pspec.xml -y
 sudo eopkg it mscorefonts*.eopkg -y;sudo rm mscorefonts*.eopkg -y
-clear
 echo "--------------------- third party packages installed ---------------------"
-
-
-## install sauce code pro font
-echo "--------------------- installing sauce code pro font ---------------------"
-sudo wget -P /usr/share/fonts/truetype/saucecodepro https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/SourceCodePro/Regular/complete/Sauce%20Code%20Pro%20Nerd%20Font%20Complete.ttf
-echo "--------------------- installed sauce code pro font ---------------------"
-
-
-## set new shell for user
-
-echo "--------------------- setting new shell for user ---------------------"
-chsh -s /bin/zsh
 clear
-echo "--------------------- done ---------------------" 
 
-
-## add dotfiles
-
-echo "--------------------- adding dotfiles ---------------------"
-sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/themes/powerlevel10k
-mkdir ~/tmp
-git clone https://github.com/sethfl/dotfiles.git ~/tmp
-cd ~/tmp
-cp -r home/. ~/
-cd ~
-rm -rf tmp
-clear
-echo "--------------------- done ---------------------"
 
 ## final system upgrade and cleanup
 
 echo "--------------------- upgrading system ---------------------"
 sudo eopkg up -y
 echo "--------------------- system upgraded ---------------------"
+clear
 echo "--------------------- cleaning up ---------------------"
 sudo eopkg rmo -y
 echo "--------------------- cleaned :) ---------------------"
 clear
 echo "--------------------- final upgrade complete and orphan packages removed ---------------------"
-
+clear
 
 
 echo "--------------------- done ---------------------" && exit 0
