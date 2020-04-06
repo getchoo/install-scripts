@@ -2,6 +2,14 @@
 
 
 
+## remove libreoffice
+
+echo "--------------------- removing libreoffice ---------------------"
+sudo apt remove libreoffice*
+echo "--------------------- done ---------------------"
+clear
+
+
 ## inital upgrade
 
 echo "--------------------- upgrading system ---------------------"
@@ -24,17 +32,6 @@ clear
 echo "--------------------- installing packages ---------------------"
 sudo apt install neofetch git neovim zsh wget ttf-mscorefonts-installer p7zip-full -y
 echo "--------------------- packages installed ---------------------"
-clear
-
-
-## replace snap with flatpak
-
-echo "--------------------- installing snap apps ---------------------"
-sudo apt purge snapd
-sudo apt install flatpak gnome-software-plugin-flatpak
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install com.spotify.Client com.discordapp.Discord
-echo "--------------------- snap apps installed ---------------------"
 clear
 
 
