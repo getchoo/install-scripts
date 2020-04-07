@@ -34,6 +34,15 @@ sudo apt install neofetch git neovim zsh wget ttf-mscorefonts-installer p7zip-fu
 echo "--------------------- packages installed ---------------------"
 clear
 
+## install flatpak apps
+
+echo "--------------------- installing flatpak apps ---------------------"
+sudo apt install flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install com.spotify.Client com.discordapp.Discord
+echo "--------------------- installed flatpak apps ---------------------"
+clear
+
 
 ## final system upgrade
 

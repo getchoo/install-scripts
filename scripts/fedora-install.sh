@@ -63,7 +63,7 @@ echo "--------------------- system upgraded ---------------------"
 clear
 
 
-#remove orphans 
+#remove orphans
 
 echo "--------------------- removing orphans ---------------------"
 sudo dnf autoremove -y
