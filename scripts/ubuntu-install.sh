@@ -5,8 +5,8 @@
 ## inital upgrade
 
 echo "--------------------- upgrading system ---------------------"
-sudo apt update -y
-sudo apt upgrade -y
+sudo apt -y update
+sudo apt -y upgrade
 echo "--------------------- system upgraded ---------------------"
 clear
 
@@ -14,7 +14,7 @@ clear
 ## remove orphans
 
 echo "--------------------- removing orphans ---------------------"
-sudo apt autoremove -y
+sudo apt -y autoremove
 echo "--------------------- orphans removed ---------------------"
 clear
 
@@ -22,7 +22,7 @@ clear
 ## install packages i like
 
 echo "--------------------- installing packages ---------------------"
-sudo apt install neofetch git mpd ncmpcpp neovim zsh wget ttf-mscorefonts-installer p7zip-full -y
+sudo apt -y install git mpd ncmpcpp neofetch neovim p7zip-full ppa-purge ttf-mscorefonts-installer zsh
 echo "--------------------- packages installed ---------------------"
 clear
 
@@ -30,10 +30,10 @@ clear
 ## replace snap with flatpak
 
 echo "--------------------- installing flatpak apps ---------------------"
-sudo apt purge snapd
-sudo apt install flatpak gnome-software-plugin-flatpak
+sudo apt -y purge snapd
+sudo apt -y install flatpak gnome-software-plugin-flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install com.spotify.Client com.discordapp.Discord
+flatpak install flathub com.discordapp.Discord com.spotify.Client
 echo "--------------------- flatpak apps installed ---------------------"
 clear
 
@@ -41,8 +41,8 @@ clear
 ## final system upgrade
 
 echo "--------------------- upgrade ---------------------"
-sudo apt update -y
-sudo apt full-upgrade -y
+sudo apt -y update
+sudo apt -y full-upgrade
 echo "--------------------- final system update complete ---------------------"
 clear
 
@@ -50,8 +50,8 @@ clear
 ## cleaning up
 
 echo "--------------------- cleaning up ---------------------"
-sudo apt autoremove -y
-sudo apt clean -y
+sudo apt -y autoremove
+sudo apt -y clean
 echo "--------------------- final system cleaned up ---------------------"
 clear
 
