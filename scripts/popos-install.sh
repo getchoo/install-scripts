@@ -10,6 +10,15 @@ echo "--------------------- done ---------------------"
 clear
 
 
+## add pcr
+echo "--------------------- adding pcr ---------------------"
+sudo apt install wget
+wget -qO - https://apt.pop-planet.info/key.asc | sudo apt-key add -
+sudo apt-add-repository https://apt.pop-planet.info
+echo "--------------------- done ---------------------"
+clear
+
+
 ## inital upgrade
 
 echo "--------------------- upgrading system ---------------------"
