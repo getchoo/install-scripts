@@ -38,7 +38,7 @@ clear
 
 echo "--------------------- installing packages ---------------------"
 sudo dnf remove libreoffice-x11
-sudo dnf install htop neovim p7zip zsh -y
+sudo dnf install htop mpd ncmpcpp neovim p7zip zsh -y
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak install flathub com.spotify.Client
 flatpak install flathub com.discordapp.Discord
