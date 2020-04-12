@@ -11,6 +11,7 @@ clear
 
 
 ## add pcr
+
 echo "--------------------- adding pcr ---------------------"
 sudo apt -y install wget
 wget -qO - https://apt.pop-planet.info/key.asc | sudo apt-key add -
@@ -47,7 +48,7 @@ clear
 
 echo "--------------------- installing flatpak apps ---------------------"
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak -y install flathub com.discordapp.Discord
+flatpak -y install flathub com.axosoft.GitKraken com.discordapp.Discord io.atom.Atom
 echo "--------------------- installed flatpak apps ---------------------"
 clear
 
