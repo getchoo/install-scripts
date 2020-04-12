@@ -49,21 +49,13 @@ echo "--------------------- done ---------------------"
 clear
 
 
-## add flathub
-
-echo "--------------------- adding flathub repo ---------------------"
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-echo "--------------------- flathub repo installed ---------------------"
-clear
-
-
 ## install packages
 
 echo "--------------------- installing packages ---------------------"
 sudo dnf -y remove libreoffice-x11
 sudo dnf -y install htop lpf-mscore-fonts mpd ncmpcpp neovim p7zip zsh
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak -y install flathub com.axosoft.GitKraken com.discordapp.Discord com.spotify.Client
+flatpak -y install flathub com.axosoft.GitKraken com.discordapp.Discord 
 echo "--------------------- apps installed ---------------------"
 clear
 

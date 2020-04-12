@@ -30,7 +30,7 @@ clear
 
 echo "--------------------- installing flathub repo ---------------------"
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub com.axosoft.GitKraken com.spotify.Client
+flatpak install flathub com.axosoft.GitKraken
 echo "--------------------- flathub repo installed ---------------------"
 clear
 

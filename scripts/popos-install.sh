@@ -47,7 +47,7 @@ clear
 
 echo "--------------------- installing flatpak apps ---------------------"
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak -y install flathub com.discordapp.Discord com.spotify.Client
+flatpak -y install flathub com.discordapp.Discord
 echo "--------------------- installed flatpak apps ---------------------"
 clear
 

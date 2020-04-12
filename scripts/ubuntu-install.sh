@@ -33,7 +33,7 @@ echo "--------------------- installing flatpak apps ---------------------"
 sudo apt -y purge snapd
 sudo apt -y install flatpak gnome-software-plugin-flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub com.discordapp.Discord com.spotify.Client
+flatpak install flathub com.discordapp.Discord
 echo "--------------------- flatpak apps installed ---------------------"
 clear
 
