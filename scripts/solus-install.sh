@@ -21,7 +21,7 @@ clear
 ## add packages i do like
 
 echo "--------------------- installing packages ---------------------"
-sudo eopkg -y it deluge discord flatpak git gtkhash lollypop mpd ncmpcpp neofetch neovim p7zip zsh
+sudo eopkg -y it deluge discord fish flatpak git lollypop neofetch neovim p7zip
 echo "--------------------- base packages installed ---------------------"
 clear
 

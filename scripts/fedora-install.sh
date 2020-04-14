@@ -26,36 +26,11 @@ echo "--------------------- extra repos installed ---------------------"
 clear
 
 
-## install codecs
-
-echo "--------------------- installing multimedia codecs ---------------------"
-sudo dnf -y groupupdate multimedia
-sudo dnf -y groupupdate sound-and-video
-echo "--------------------- done ---------------------"
-clear
-
-
-## disable mouse acceleration
-
-echo "--------------------- disabling mouse acceleration --------------------- "
-cat > /etc/X11/xorg.conf.d/50-mouse-acceleration.conf <<EOF
-Section "InputClass"
-	Identifier "Fedy Mouse Configuration - Disable mouse acceleration"
-	MatchIsPointer "yes"
-	Option "AccelerationProfile" "-1"
-	Option "AccelerationScheme" "none"
-	Option "AccelSpeed" "-1"
-EndSection
-EOF
-echo "--------------------- done ---------------------"
-clear
-
-
 ## install packages
 
 echo "--------------------- installing packages ---------------------"
 sudo dnf -y remove libreoffice-x11
-sudo dnf -y install htop lpf-mscore-fonts mpd ncmpcpp neovim p7zip zsh
+sudo dnf -y install fedy fish htop lpf-mscore-fonts neovim p7zip
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak -y install flathub com.axosoft.GitKraken com.discordapp.Discord
 echo "--------------------- apps installed ---------------------"

@@ -40,7 +40,7 @@ clear
 ## install packages i like
 
 echo "--------------------- installing packages ---------------------"
-sudo apt -y install flatpak git mpd ncmpcpp neofetch neovim p7zip-full ppa-purge ttf-mscorefonts-installer zsh
+sudo apt -y install fish flatpak git neofetch neovim p7zip-full ppa-purge ttf-mscorefonts-installer
 echo "--------------------- packages installed ---------------------"
 clear
 
