@@ -2,6 +2,14 @@
 
 
 
+## config
+
+echo "--------------------- editing .profile ---------------------"
+wget -O - -o /dev/null https://raw.githubusercontent.com/sethfl/install-scripts/master/profile | tee -a .profile
+echo "--------------------- done ---------------------"
+clear
+
+
 ## inital upgrade
 
 echo "--------------------- upgrading system ---------------------"
