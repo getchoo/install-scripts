@@ -41,7 +41,8 @@ clear
 ## add dotfiles
 
 echo "--------------------- add dotfiles ---------------------"
-curl -O ~/.config/alacritty/alacritty.yml https://raw.githubusercontent.com/sethfl/install-scripts/master/dotfiles/alacritty.yml
+mkdir ~/.config/alacritty
+curl https://raw.githubusercontent.com/sethfl/install-scripts/master/dotfiles/alacritty.yml | tee ~/.config/alacritty/alacritty.yml
 echo "--------------------- done ---------------------"
 clear
 
