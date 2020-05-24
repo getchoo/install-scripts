@@ -40,16 +40,16 @@ clear
 ## install packages i like
 
 echo "--------------------- installing packages ---------------------"
-sudo apt -y install fish flatpak git neofetch neovim p7zip-full ppa-purge ttf-mscorefonts-installer
+sudo apt -y install alacritty curl fish flatpak git neofetch neovim p7zip-full ppa-purge ttf-mscorefonts-installer
 echo "--------------------- packages installed ---------------------"
 clear
 
-## install flatpak apps
 
-echo "--------------------- installing flatpak apps ---------------------"
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak -y install flathub com.axosoft.GitKraken com.discordapp.Discord io.atom.Atom
-echo "--------------------- installed flatpak apps ---------------------"
+## add dotfiles
+
+echo "--------------------- add dotfiles ---------------------"
+curl -O ~/.config/alacritty/alacritty.yml https://raw.githubusercontent.com/sethfl/install-scripts/master/dotfiles/alacritty.yml
+echo "--------------------- done ---------------------"
 clear
 
 

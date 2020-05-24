@@ -21,7 +21,7 @@ clear
 ## add packages i do like
 
 echo "--------------------- installing packages ---------------------"
-sudo eopkg -y it deluge discord fish flatpak git lollypop neofetch neovim p7zip
+sudo eopkg -y it alacritty curl deluge discord fish flatpak git lollypop neofetch neovim p7zip
 echo "--------------------- base packages installed ---------------------"
 clear
 
@@ -41,6 +41,14 @@ echo "--------------------- installing microsoft fonts ---------------------"
 sudo eopkg -y bi --ignore-safety https://raw.githubusercontent.com/getsolus/3rd-party/master/desktop/font/mscorefonts/pspec.xml
 sudo eopkg -y it mscorefonts*.eopkg;sudo rm mscorefonts*.eopkg
 echo "--------------------- third party packages installed ---------------------"
+clear
+
+
+## add dotfiles
+
+echo "--------------------- add dotfiles ---------------------"
+curl -O ~/.config/alacritty/alacritty.yml https://raw.githubusercontent.com/sethfl/install-scripts/master/dotfiles/alacritty.yml
+echo "--------------------- done ---------------------"
 clear
 
 
