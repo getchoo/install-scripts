@@ -31,18 +31,17 @@ clear
 
 echo "--------------------- installing packages ---------------------"
 sudo dnf -y remove libreoffice-x11
-sudo dnf -y install alacritty curl fedy fish htop lpf-mscore-fonts neovim p7zip
+sudo dnf -y install curl fedy git htop lpf-mscore-fonts neovim p7zip zsh
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak -y install flathub com.axosoft.GitKraken com.discordapp.Discord
 echo "--------------------- apps installed ---------------------"
 clear
 
 
-## add dotfiles
+## change shell
 
-echo "--------------------- add dotfiles ---------------------"
-mkdir ~/.config/alacritty
-curl https://raw.githubusercontent.com/sethfl/install-scripts/master/dotfiles/alacritty.yml | tee ~/.config/alacritty/alacritty.yml
+echo "--------------------- changing shell ---------------------"
+chsh -s /usr/bin/zsh
 echo "--------------------- done ---------------------"
 clear
 

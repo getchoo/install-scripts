@@ -40,7 +40,7 @@ clear
 ## install packages i like
 
 echo "--------------------- installing packages ---------------------"
-sudo apt -y install alacritty curl fish flatpak git neofetch neovim p7zip-full ppa-purge ttf-mscorefonts-installer
+sudo apt -y install curl flatpak git neofetch neovim p7zip-full ppa-purge ttf-mscorefonts-installer zsh
 echo "--------------------- packages installed ---------------------"
 clear
 
@@ -48,8 +48,18 @@ clear
 ## add dotfiles
 
 echo "--------------------- add dotfiles ---------------------"
-mkdir ~/.config/alacritty
-curl https://raw.githubusercontent.com/sethfl/install-scripts/master/dotfiles/alacritty.yml | tee ~/.config/alacritty/alacritty.yml
+git clone https://github.com/sethfl/install-scripts.git
+cp -r install-scripts/dotfiles/zsh ~/.config
+cp install-scripts/dotfiles/.profile ~/.
+rm -rf install-scripts
+echo "--------------------- done ---------------------"
+clear
+
+
+## change shells
+
+echo "--------------------- changing shell ---------------------"
+chsh -s /usr/bin/zsh
 echo "--------------------- done ---------------------"
 clear
 
@@ -58,7 +68,7 @@ clear
 
 echo "--------------------- upgrade ---------------------"
 sudo apt -y update
-sudo apt -y full-upgrade
+sudo apt -y upgrade
 echo "--------------------- final system update complete ---------------------"
 clear
 

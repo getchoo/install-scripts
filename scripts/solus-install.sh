@@ -21,7 +21,7 @@ clear
 ## add packages i do like
 
 echo "--------------------- installing packages ---------------------"
-sudo eopkg -y it alacritty curl deluge discord fish flatpak git lollypop neofetch neovim p7zip
+sudo eopkg -y it curl discord flatpak git lollypop neofetch neovim p7zip zsh
 echo "--------------------- base packages installed ---------------------"
 clear
 
@@ -44,11 +44,10 @@ echo "--------------------- third party packages installed ---------------------
 clear
 
 
-## add dotfiles
+## change shell
 
-echo "--------------------- add dotfiles ---------------------"
-mkdir ~/.config/alacritty
-curl https://raw.githubusercontent.com/sethfl/install-scripts/master/dotfiles/alacritty.yml | tee ~/.config/alacritty/alacritty.yml
+echo "--------------------- changing shell ---------------------"
+chsh -s /usr/bin/zsh
 echo "--------------------- done ---------------------"
 clear
 

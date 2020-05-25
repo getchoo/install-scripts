@@ -38,11 +38,10 @@ echo "--------------------- flatpak apps installed ---------------------"
 clear
 
 
-## add dotfiles
+## change shells
 
-echo "--------------------- add dotfiles ---------------------"
-mkdir ~/.config/alacritty
-curl https://raw.githubusercontent.com/sethfl/install-scripts/master/dotfiles/alacritty.yml | tee ~/.config/alacritty/alacritty.yml
+echo "--------------------- changing shell ---------------------"
+chsh -s /usr/bin/zsh
 echo "--------------------- done ---------------------"
 clear
 
