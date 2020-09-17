@@ -22,7 +22,7 @@ clear
 ## install packages i like
 
 echo "--------------------- installing packages ---------------------"
-sudo apt -y install alacritty curl fish git neofetch neovim p7zip-full ppa-purge ttf-mscorefonts-installer
+sudo apt -y install curl git neofetch neovim p7zip-full ppa-purge ttf-mscorefonts-installer zsh
 echo "--------------------- packages installed ---------------------"
 clear
 
@@ -45,6 +45,15 @@ chsh -s /usr/bin/zsh
 echo "--------------------- done ---------------------"
 clear
 
+
+## install dotfiles
+
+echo "--------------------- installing dotfiles ---------------------"
+mkdir -p ~/dev/git && cd ~/dev/git
+git clone https://github.com/sethfl/install-scripts.git
+cp -r install-scripts/dotfiles/* ~/.
+echo "--------------------- done ---------------------"
+clear
 
 ## final system upgrade
 

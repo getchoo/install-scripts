@@ -21,7 +21,7 @@ clear
 ## add packages i do like
 
 echo "--------------------- installing packages ---------------------"
-sudo eopkg -y it curl discord flatpak git lollypop neofetch neovim p7zip zsh
+sudo eopkg -y it curl discord flatpak git neofetch neovim p7zip zsh
 echo "--------------------- base packages installed ---------------------"
 clear
 
@@ -44,10 +44,20 @@ echo "--------------------- third party packages installed ---------------------
 clear
 
 
-## change shell
+## change shells
 
 echo "--------------------- changing shell ---------------------"
 chsh -s /usr/bin/zsh
+echo "--------------------- done ---------------------"
+clear
+
+
+## install dotfiles
+
+echo "--------------------- installing dotfiles ---------------------"
+mkdir -p ~/dev/git && cd ~/dev/git
+git clone https://github.com/sethfl/install-scripts.git
+cp -r install-scripts/dotfiles/* ~/.
 echo "--------------------- done ---------------------"
 clear
 
