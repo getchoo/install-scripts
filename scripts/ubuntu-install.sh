@@ -11,18 +11,10 @@ echo "--------------------- system upgraded ---------------------"
 clear
 
 
-## remove orphans
-
-echo "--------------------- removing orphans ---------------------"
-sudo apt -y autoremove
-echo "--------------------- orphans removed ---------------------"
-clear
-
-
 ## install packages i like
 
 echo "--------------------- installing packages ---------------------"
-sudo apt -y install curl git neofetch neovim p7zip-full ppa-purge ttf-mscorefonts-installer zsh
+sudo apt -y install curl git neofetch neovim p7zip-full ppa-purge ttf-mscorefonts-installer ubuntu-restricted-extras wget zsh
 echo "--------------------- packages installed ---------------------"
 clear
 
@@ -47,20 +39,11 @@ clear
 
 
 ## install dotfiles
-
+ 
 echo "--------------------- installing dotfiles ---------------------"
-mkdir -p ~/dev/git && cd ~/dev/git
-git clone https://github.com/sethfl/install-scripts.git
-cp -r install-scripts/dotfiles/* ~/.
+rm -rf ~/.config/autostart
+cp -r dotfiles/. ~/
 echo "--------------------- done ---------------------"
-clear
-
-## final system upgrade
-
-echo "--------------------- upgrade ---------------------"
-sudo apt -y update
-sudo apt -y full-upgrade
-echo "--------------------- final system update complete ---------------------"
 clear
 
 

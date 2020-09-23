@@ -21,7 +21,7 @@ clear
 ## add packages i do like
 
 echo "--------------------- installing packages ---------------------"
-sudo eopkg -y it curl discord flatpak git neofetch neovim p7zip zsh
+sudo eopkg -y it curl discord flatpak git neofetch neovim p7zip wget zsh
 echo "--------------------- base packages installed ---------------------"
 clear
 
@@ -30,17 +30,7 @@ clear
 
 echo "--------------------- installing flathub repo ---------------------"
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub com.axosoft.GitKraken
 echo "--------------------- flathub repo installed ---------------------"
-clear
-
-
-## install microsoft fonts
-
-echo "--------------------- installing microsoft fonts ---------------------"
-sudo eopkg -y bi --ignore-safety https://raw.githubusercontent.com/getsolus/3rd-party/master/desktop/font/mscorefonts/pspec.xml
-sudo eopkg -y it mscorefonts*.eopkg;sudo rm mscorefonts*.eopkg
-echo "--------------------- third party packages installed ---------------------"
 clear
 
 
@@ -55,9 +45,20 @@ clear
 ## install dotfiles
 
 echo "--------------------- installing dotfiles ---------------------"
-mkdir -p ~/dev/git && cd ~/dev/git
-git clone https://github.com/sethfl/install-scripts.git
-cp -r install-scripts/dotfiles/* ~/.
+rm -rf ~/.config/autostart
+cp -r dotfiles/. ~/
+rm -rf ~/.zprofile
+cat dotfiles/.zprofile | sudo tee -a /usr/share/defaults/etc/profile
+echo "--------------------- done ---------------------"
+clear
+
+
+## install fonts
+
+echo "--------------------- installing fonts ---------------------"
+sudo wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf -P /usr/share/fonts/truetype/
+sudo eopkg -y bi --ignore-safety https://raw.githubusercontent.com/getsolus/3rd-party/master/desktop/font/mscorefonts/pspec.xml
+sudo eopkg -y it mscorefonts*.eopkg;sudo rm mscorefonts*.eopkg
 echo "--------------------- done ---------------------"
 clear
 
