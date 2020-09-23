@@ -37,7 +37,7 @@ mkdir -p ~/dev/solbuild
 git clone https://dev.getsol.us/source/common.git ~/dev/solbuild/
 ln -sv ~/dev/solbuild/common/Makefile.common ~/dev/solbuild/.
 ln -sv ~/dev/solbuild/common/Makefile.toplevel ~/dev/solbuild/Makefile
-ln -sv ~/dev/solbuild/common/Makefile.iso ~/dev/solbuild.
+ln -sv ~/dev/solbuild/common/Makefile.iso ~/dev/solbuild/.
 echo "--------------------- done ---------------------"
 clear
 
