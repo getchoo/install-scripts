@@ -26,6 +26,22 @@ echo "--------------------- base packages installed ---------------------"
 clear
 
 
+## setup packager stuff
+
+echo "--------------------- setting up packager enviorment ---------------------"
+sudo eopkg it -c system.devel
+sudo eopkg it solbuild solbuild-config-unstable
+sudo solbuild init
+sudo solbuild update
+mkdir -p ~/dev/solbuild
+git clone https://dev.getsol.us/source/common.git ~/dev/solbuild/
+ln -sv ~/dev/solbuild/common/Makefile.common ~/dev/solbuild/.
+ln -sv ~/dev/solbuild/common/Makefile.toplevel ~/dev/solbuild/Makefile
+ln -sv ~/dev/solbuild/common/Makefile.iso ~/dev/solbuild.
+echo "--------------------- done ---------------------"
+clear
+
+
 ## install flathub repo
 
 echo "--------------------- installing flathub repo ---------------------"
@@ -45,9 +61,8 @@ clear
 ## install dotfiles
 
 echo "--------------------- installing dotfiles ---------------------"
-rm -rf ~/.config/autostart
 cp -r dotfiles/. ~/
-rm -rf ~/.zprofile
+rm -rf ~/.config/autostart/script.desktop ~/.zprofile
 cat dotfiles/.zprofile | sudo tee -a /usr/share/defaults/etc/profile
 echo "--------------------- done ---------------------"
 clear

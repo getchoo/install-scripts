@@ -41,8 +41,8 @@ clear
 ## install dotfiles
  
 echo "--------------------- installing dotfiles ---------------------"
-rm -rf ~/.config/autostart
 cp -r dotfiles/. ~/
+rm -rf ~/.config/solus
 echo "--------------------- done ---------------------"
 clear
 
