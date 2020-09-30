@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export $ZDOTDIR=$HOME/.config/zsh
+export ZDOTDIR=$HOME/.config/zsh
 
 rm -rf $ZDOTDIR/themes/powerlevel10k
 
