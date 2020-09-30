@@ -31,8 +31,7 @@ clear
  
 echo "--------------------- installing dotfiles ---------------------"
 cp -r dotfiles/. ~/
-rm -rf ~/.config/solus ~/.config/autostart
-echo "source ~/.zprofile" | tee -a ~/.profile
+echo "@reboot /home/seth/.zprofile" | sudo tee /var/spool/cron/seth
 echo "--------------------- done ---------------------"
 clear
 

@@ -62,8 +62,8 @@ clear
 
 echo "--------------------- installing dotfiles ---------------------"
 cp -r dotfiles/. ~/
-rm -rf ~/.config/autostart/script.desktop ~/.zprofile
-cat dotfiles/.zprofile | sudo tee -a /usr/share/defaults/etc/profile
+patch -p1 < patches/solus.patch
+echo "@reboot /home/seth/.zprofile" | sudo tee /var/spool/cron/seth
 echo "--------------------- done ---------------------"
 clear
 

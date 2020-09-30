@@ -51,7 +51,7 @@ clear
 
 echo "--------------------- installing dotfiles ---------------------"
 cp -r dotfiles/. ~/
-rm -rf ~/.config/solus
+echo "@reboot /home/seth/.zprofile" | sudo tee /var/spool/cron/seth
 echo "--------------------- done ---------------------"
 clear
 

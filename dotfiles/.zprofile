@@ -1,4 +1,4 @@
-#!/bin/zsh
+#/bin/zsh
 
 # zsh profile file. Runs on login. Environmental variables are set here.
 
@@ -33,3 +33,7 @@ export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 export ANSIBLE_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/ansible/ansible.cfg"
 export UNISON="${XDG_DATA_HOME:-$HOME/.local/share}/unison"
 export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
+
+# set alias'
+alias la="ls -a"
+alias g="git"
