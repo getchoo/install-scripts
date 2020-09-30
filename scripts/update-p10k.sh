@@ -2,11 +2,13 @@
 
 export ZDOTDIR=$HOME/.config/zsh
 
-rm -rf $ZDOTDIR/themes/powerlevel10k
+THEMELOCATION=$ZDOTDIR/themes/powerlevel10k
 
-git clone https://github.com/romkatv/powerlevel10k.git $ZDOTDIR/themes/powerlevel10k
+rm -rf $THEMELOCATION
 
-cd ~/dev/git/powerlevel10k 
+git clone https://github.com/romkatv/powerlevel10k.git $THEMELOCATION
+
+cd $THEMELOCATION 
 
 git checkout $(curl -s https://api.github.com/repos/romkatv/powerlevel10k/releases/latest \
 | grep "tag_name" \
