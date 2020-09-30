@@ -37,3 +37,4 @@ export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
 # set alias'
 alias la="ls -a"
 alias g="git"
+alias archo="pacman -Rs $(pacman -Qqtd)"
