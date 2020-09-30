@@ -168,13 +168,13 @@ function gitstatus_query"${1:-}"() {
   done
 
   if (( OPTIND != ARGC )); then
-    print -ru2 -- "gitstatus_start: exactly one positional argument is required"
+    print -ru2 -- "gitstatus_query: exactly one positional argument is required"
     return 1
   fi
 
   local name=$*[OPTIND]
   if [[ $name != [[:IDENT:]]## ]]; then
-    print -ru2 -- "gitstatus_start: invalid positional argument: $name"
+    print -ru2 -- "gitstatus_query: invalid positional argument: $name"
     return 1
   fi
 
@@ -184,6 +184,12 @@ function gitstatus_query"${1:-}"() {
     [[ $dir == /* ]] || dir=${(%):-%/}/$dir
   else
     [[ $GIT_DIR == /* ]] && dir=:$GIT_DIR || dir=:${(%):-%/}/$GIT_DIR
+  fi
+
+  if [[ $dir != (|:)/* ]]; then
+    typeset -g VCS_STATUS_RESULT=norepo-sync
+    _gitstatus_clear$fsuf
+    return 0
   fi
 
   local -i req_fd=${(P)${:-_GITSTATUS_REQ_FD_$name}}
@@ -365,7 +371,7 @@ function _gitstatus_daemon"${1:-}"() {
       trap '' PIPE
 
       local uname_sm
-      uname_sm="${(L)$(uname -sm)}"          || return
+      uname_sm="${(L)$(command uname -sm)}"          || return
       [[ $uname_sm == [^' ']##' '[^' ']## ]] || return
       local uname_s=${uname_sm% *}
       local uname_m=${uname_sm#* }
@@ -375,15 +381,15 @@ function _gitstatus_daemon"${1:-}"() {
       else
         local cpus
         if (( ! $+commands[sysctl] )) || [[ $uname_s == linux ]] ||
-            ! cpus="$(sysctl -n hw.ncpu)"; then
-          if (( ! $+commands[getconf] )) || ! cpus="$(getconf _NPROCESSORS_ONLN)"; then
+            ! cpus="$(command sysctl -n hw.ncpu)"; then
+          if (( ! $+commands[getconf] )) || ! cpus="$(command getconf _NPROCESSORS_ONLN)"; then
             cpus=8
           fi
         fi
         args+=(-t $((cpus > 16 ? 32 : cpus > 0 ? 2 * cpus : 16)))
       fi
 
-      mkfifo -- $file_prefix.fifo           || return
+      command mkfifo -- $file_prefix.fifo   || return
       print -rnu $pipe_fd -- ${(l:20:)pgid} || return
       exec <$file_prefix.fifo               || return
       zf_rm -- $file_prefix.fifo            || return
@@ -398,32 +404,44 @@ function _gitstatus_daemon"${1:-}"() {
 
       local gitstatus_plugin_dir_var=_gitstatus_plugin_dir$fsuf
       local gitstatus_plugin_dir=${(P)gitstatus_plugin_dir_var}
-      set -- -d $gitstatus_plugin_dir -s $uname_s -m $uname_m -p "printf . >&$pipe_fd" -- \
+      builtin set -- -d $gitstatus_plugin_dir -s $uname_s -m $uname_m -p "printf . >&$pipe_fd" -- \
         _gitstatus_set_daemon$fsuf
-      [[ ${GITSTATUS_AUTO_INSTALL:-1} == (|-|+)<1-> ]] || set -- -n "$@"
-      source $gitstatus_plugin_dir/install     || return
-      [[ -n $_gitstatus_zsh_daemon ]]          || return
-      [[ -n $_gitstatus_zsh_version ]]         || return
-      [[ $_gitstatus_zsh_downloaded == [01] ]] || return
+      [[ ${GITSTATUS_AUTO_INSTALL:-1} == (|-|+)<1-> ]] || builtin set -- -n "$@"
+      builtin source $gitstatus_plugin_dir/install     || return
+      [[ -n $_gitstatus_zsh_daemon ]]                  || return
+      [[ -n $_gitstatus_zsh_version ]]                 || return
+      [[ $_gitstatus_zsh_downloaded == [01] ]]         || return
+
+      if (( UID == EUID )); then
+        local home=~
+      else
+        local user
+        user="$(command id -un)" || return
+        local home=${userdirs[$user]}
+        [[ -n $home ]] || return
+      fi
 
       if [[ -x $_gitstatus_zsh_daemon ]]; then
-        $_gitstatus_zsh_daemon -G $_gitstatus_zsh_version "${(@)args}" >&$pipe_fd
+        HOME=$home $_gitstatus_zsh_daemon -G $_gitstatus_zsh_version "${(@)args}" >&$pipe_fd
         local -i ret=$?
-        [[ $ret == (0|129|130|131|137|141|143) ]] && return ret
+        [[ $ret == (0|129|130|131|137|141|143|159) ]] && return ret
       fi
 
       (( ! _gitstatus_zsh_downloaded ))                || return
       [[ ${GITSTATUS_AUTO_INSTALL:-1} == (|-|+)<1-> ]] || return
-      set -- -f "$@"
+      [[ $_gitstatus_zsh_daemon == \
+         ${GITSTATUS_CACHE_DIR:-${XDG_CACHE_HOME:-$HOME/.cache}/gitstatus}/* ]] || return
+
+      builtin set -- -f "$@"
       _gitstatus_zsh_daemon=
       _gitstatus_zsh_version=
       _gitstatus_zsh_downloaded=
-      source $gitstatus_plugin_dir/install  || return
-      [[ -n $_gitstatus_zsh_daemon ]]       || return
-      [[ -n $_gitstatus_zsh_version ]]      || return
-      [[ $_gitstatus_zsh_downloaded == 1 ]] || return
+      builtin source $gitstatus_plugin_dir/install || return
+      [[ -n $_gitstatus_zsh_daemon ]]              || return
+      [[ -n $_gitstatus_zsh_version ]]             || return
+      [[ $_gitstatus_zsh_downloaded == 1 ]]        || return
 
-      $_gitstatus_zsh_daemon -G $_gitstatus_zsh_version "${(@)args}" >&$pipe_fd
+      HOME=$home $_gitstatus_zsh_daemon -G $_gitstatus_zsh_version "${(@)args}" >&$pipe_fd
     } always {
       local -i ret=$?
       zf_rm -f -- $file_prefix.lock $file_prefix.fifo
@@ -504,7 +522,7 @@ function gitstatus_start"${1:-}"() {
         args+=(-$opt $OPTARG)
         [[ $opt == m ]] && dirty_max_index_size=OPTARG
       ;;
-      e|U|W|D)    args+=$opt;;
+      e|U|W|D)    args+=-$opt;;
       +(e|U|W|D)) args=(${(@)args:#-$opt});;
       \?) print -ru2 -- "gitstatus_start: invalid option: $OPTARG"           ; return 1;;
       :)  print -ru2 -- "gitstatus_start: missing required argument: $OPTARG"; return 1;;
@@ -573,7 +591,7 @@ function gitstatus_start"${1:-}"() {
 
         typeset -gi _GITSTATUS_LOCK_FD_$name=lock_fd
 
-        if [[ -n $USERPROFILE && -d /cygdrive && -d /proc/self/fd ]]; then
+        if [[ $OSTYPE == cygwin* && -d /proc/self/fd ]]; then
           # Work around bugs in Cygwin 32-bit.
           #
           # This hangs:
@@ -725,60 +743,46 @@ function gitstatus_start"${1:-}"() {
     gitstatus_stop$fsuf $name
 
     setopt prompt_percent no_prompt_subst no_prompt_bang
+    (( $+functions[p10k] )) && p10k clear-instant-prompt
     print -ru2  -- ''
-    print -Pru2  -- '[%F{red}ERROR%f]: gitstatus failed to initialize.'
-    print -ru2   -- ''
-    print -ru2   -- '  Your Git prompt may disappear or become slow.'
+    print -Pru2 -- '[%F{red}ERROR%f]: gitstatus failed to initialize.'
+    print -ru2  -- ''
+    print -ru2  -- '  Your Git prompt may disappear or become slow.'
     if [[ -s $xtrace ]]; then
-      print -ru2   -- ''
-      print -ru2   -- "  The content of ${(q-)xtrace} (gitstatus_start xtrace):"
-      print -Pru2  -- '%F{yellow}'
-      >&2 awk '{print "    " $0}' <$xtrace
-      print -Pru2 -- "%F{red}                         ^ this command failed ($err)%f"
+      print -ru2  -- ''
+      print -Pru2 -- "  Zsh log (%U${xtrace//\%/%%}%u):"
+      print -Pru2 -- '%F{yellow}'
+      print -lru2 -- "${(@)${(@f)$(<$xtrace)}/#/    }"
+      print -Pnru2 -- '%f'
     fi
     if [[ -s $daemon_log ]]; then
       print -ru2   -- ''
-      print -ru2   -- "  The content of ${(q-)daemon_log} (gitstatus daemon log):"
+      print -Pru2  -- "  Daemon log (%U${daemon_log//\%/%%}%u):"
       print -Pru2  -- '%F{yellow}'
-      >&2 awk '{print "    " $0}' <$daemon_log
+      print -lru2  -- "${(@)${(@f)$(<$daemon_log)}/#/    }"
       print -Pnru2 -- '%f'
     fi
     if [[ $GITSTATUS_LOG_LEVEL == DEBUG ]]; then
       print -ru2   -- ''
-      print -ru2   -- '  Your system information:'
+      print -ru2   -- '  System information:'
       print -Pru2  -- '%F{yellow}'
       print -ru2   -- "    zsh:      $ZSH_VERSION"
-      print -ru2   -- "    uname -a: $(uname -a)"
+      print -ru2   -- "    uname -a: $(command uname -a)"
       print -Pru2  -- '%f'
       print -ru2   -- '  If you need help, open an issue and attach this whole error message to it:'
       print -ru2   -- ''
-      print -Pru2  -- '    %F{green}https://github.com/romkatv/gitstatus/issues/new%f'
+      print -Pru2  -- '    %Uhttps://github.com/romkatv/gitstatus/issues/new%u'
     else
       print -ru2   -- ''
-      print -ru2   -- '  Run the following command to retry with extra diagnostics:'
-      print -Pru2  -- '%F{green}'
-      local env="GITSTATUS_LOG_LEVEL=DEBUG"
-      if [[ -n $GITSTATUS_NUM_THREADS ]]; then
-        env+=" GITSTATUS_NUM_THREADS=${(q)GITSTATUS_NUM_THREADS}"
-      fi
-      if [[ -n $GITSTATUS_DAEMON ]]; then
-        env+=" GITSTATUS_DAEMON=${(q)GITSTATUS_DAEMON}"
-      fi
-      if [[ -n $GITSTATUS_AUTO_INSTALL ]]; then
-        env+=" GITSTATUS_AUTO_INSTALL=${(q)GITSTATUS_AUTO_INSTALL}"
-      fi
-      if [[ -n $GITSTATUS_CACHE_DIR ]]; then
-        env+=" GITSTATUS_CACHE_DIR=${(q)GITSTATUS_CACHE_DIR}"
-      fi
-      print -nru2  -- "    ${env} gitstatus_start ${(@q-)*}"
-      print -Pru2  -- '%f'
+      local home=~
+      local zshrc=${${${(q)${ZDOTDIR:-~}}/#${(q)home}/'~'}//\%/%%}/.zshrc
+      print -Pru2   -- "  Add the following parameter to %U$zshrc%u for extra diagnostics on error:"
       print -ru2   -- ''
-      local zshrc=${(D)ZDOTDIR:-~}/.zshrc
-      print -ru2   -- "  If this command produces no output, add the following parameter to $zshrc:"
+      print -Pru2  -- '    %BGITSTATUS_LOG_LEVEL=DEBUG%b'
       print -ru2   -- ''
-      print -Pru2  -- '%F{green}    GITSTATUS_LOG_LEVEL=DEBUG%f'
+      print -ru2   -- '  Restart Zsh to retry gitstatus initialization:'
       print -ru2   -- ''
-      print -ru2   -- '  With this parameter gitstatus will print additional information on error.'
+      print -Pru2   -- '    %F{green}%Uexec%u zsh%f'
     fi
   }
 }
