@@ -1,6 +1,8 @@
 #/bin/zsh
-# Adds `~/.local/bin` to $PATH
-export PATH="$PATH:$(du "$HOME/.local/bin" | cut -f2 | paste -sd ':')"
+
+# add stuff to path
+export PATH="$PATH:/home/seth/.local/share/cargo/bin"
+
 
 # ~/ Clean-up:
 export XDG_CONFIG_HOME="$HOME/.config"

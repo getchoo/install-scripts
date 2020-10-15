@@ -61,9 +61,8 @@ clear
 ## install dotfiles
 
 echo "--------------------- installing dotfiles ---------------------"
-cp -r dotfiles/. ~/
 patch -p1 < patches/solus.patch
-echo "@reboot /home/seth/.config/zsh/profile.sh" | sudo tee /var/spool/cron/seth
+cp -r dotfiles/. ~/
 echo "--------------------- done ---------------------"
 clear
 
