@@ -1,3 +1,0 @@
-[submodule "dotfiles/.config/zsh/themes/powerlevel10k"]
-	path = dotfiles/.config/zsh/themes/powerlevel10k
-	url = https://github.com/romkatv/powerlevel10k

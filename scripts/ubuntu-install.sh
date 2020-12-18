@@ -41,6 +41,7 @@ clear
 ## install dotfiles
  
 echo "--------------------- installing dotfiles ---------------------"
+curl -fsSL https://starship.rs/install.sh | bash
 cp -r dotfiles/. ~/
 echo "--------------------- done ---------------------"
 clear
