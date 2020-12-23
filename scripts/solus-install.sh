@@ -20,7 +20,7 @@ echo "--------------------- base packages removed ---------------------"
 ## add packages i do like
 
 echo "--------------------- installing packages ---------------------"
-sudo eopkg -y it curl discord flatpak git neofetch neovim p7zip wget zsh
+sudo eopkg -y it curl discord fish flatpak git neofetch neovim p7zip wget zsh
 echo "--------------------- base packages installed ---------------------"
 
 
@@ -49,7 +49,7 @@ echo "--------------------- flathub repo installed ---------------------"
 ## change shells
 
 echo "--------------------- changing shell ---------------------"
-chsh -s /bin/zsh
+chsh -s /usr/bin/fish
 echo "--------------------- done ---------------------"
 
 
@@ -60,7 +60,7 @@ curl -SsLO https://starship.rs/install.sh
 sh install.sh -b /usr/bin
 patch -R -p1 < patches/solus.patch
 cp -r dotfiles/. ~/
-rm -rf install.sh dotfiles/.config
+rm -rf install.sh dotfiles/.config/solus
 echo "--------------------- done ---------------------"
 
 

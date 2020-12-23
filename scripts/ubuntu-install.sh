@@ -13,7 +13,7 @@ echo "--------------------- system upgraded ---------------------"
 ## install packages i like
 
 echo "--------------------- installing packages ---------------------"
-sudo apt -y install curl git neofetch neovim p7zip-full ppa-purge ttf-mscorefonts-installer ubuntu-restricted-extras wget zsh
+sudo apt -y install curl fish git neofetch neovim p7zip-full ppa-purge ttf-mscorefonts-installer ubuntu-restricted-extras wget zsh
 echo "--------------------- packages installed ---------------------"
 
 
@@ -30,7 +30,7 @@ echo "--------------------- flatpak apps installed ---------------------"
 ## change shells
 
 echo "--------------------- changing shell ---------------------"
-chsh -s /usr/bin/zsh
+chsh -s /usr/bin/fish
 echo "--------------------- done ---------------------"
 
 

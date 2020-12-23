@@ -8,7 +8,7 @@ compinit
 _comp_options+=(globdots)		# Include hidden files.
 
 # theme
-# eval "$(starship init zsh)"
+eval "$(starship init zsh)"
 
 # defaults
 export EDITOR='nvim'

@@ -13,14 +13,14 @@ echo "--------------------- system upgraded ---------------------"
 ## install packages i like
 
 echo "--------------------- installing packages ---------------------"
-sudo apt -y install curl git neofetch neovim ppa-purge wget zsh
+sudo apt -y install curl fish git neofetch neovim ppa-purge wget zsh
 echo "--------------------- packages installed ---------------------"
 
 
 ## change shells
 
 echo "--------------------- changing shell ---------------------"
-chsh -s /usr/bin/zsh
+chsh -s /usr/bin/fish
 echo "--------------------- done ---------------------"
 
 

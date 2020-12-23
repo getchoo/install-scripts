@@ -32,7 +32,7 @@ echo "--------------------- done ---------------------"
 
 echo "--------------------- installing packages ---------------------"
 sudo dnf -y remove libreoffice-x11
-sudo dnf -y install curl fedy git lpf-mscore-fonts neovim p7zip wget zsh
+sudo dnf -y install curl fedy fish git lpf-mscore-fonts neovim p7zip wget zsh
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak -y install flathub com.discordapp.Discord
 echo "--------------------- done ---------------------"
@@ -42,7 +42,7 @@ echo "--------------------- done ---------------------"
 ## change shells
 
 echo "--------------------- changing shell ---------------------"
-chsh -s /usr/bin/zsh
+chsh -s /usr/bin/fish
 echo "--------------------- done ---------------------"
 
 
