@@ -18,6 +18,8 @@ export VISUAL='nvim'
 alias vim='nvim'
 alias la="ls -a"
 alias g="git"
+alias ls='lsd'
+alias cat='bat'
 
 # change default directory
 cd ~
@@ -38,5 +40,6 @@ autoload -Uz _zinit
 
 export NVM_COMPLETION=true
 export NVM_LAZY_LOAD=true
+zinit light zsh-users/zsh-completions
 zinit light zdharma/fast-syntax-highlighting
 zinit light lukechilds/zsh-nvm
