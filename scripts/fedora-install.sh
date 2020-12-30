@@ -51,7 +51,6 @@ echo "--------------------- done ---------------------"
 echo "--------------------- installing shell plugin managers ---------------------"
 curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh | zsh
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-fisher install jorgebucaran/nvm.fish
 echo "--------------------- done ---------------------"
 
 

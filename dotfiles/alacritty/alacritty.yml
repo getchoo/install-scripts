@@ -1,0 +1,29 @@
+dimensions:
+  colums: 85
+  rows: 25
+
+padding:
+  x: 3
+  y: 3
+
+dynamic_padding: true
+
+decorations: full
+
+font:
+  normal:
+    family: Hack Nerd Font
+  bold:
+    family: Hack Nerd Font
+  italic:
+    family: Hack Nerd Font
+  bold_italic:
+    family: Hack Nerd Font
+
+size: 12
+
+mouse_bindings:
+  - { mouse: Middle, action: PasteSelection }
+
+import:
+  - /home/seth/.config/alacritty/dracula.yml

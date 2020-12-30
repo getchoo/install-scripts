@@ -20,7 +20,7 @@ echo "--------------------- base packages removed ---------------------"
 ## add packages i do like
 
 echo "--------------------- installing packages ---------------------"
-sudo eopkg -y it bat curl discord fish flatpak git lsd neofetch neovim p7zip wget zsh
+sudo eopkg -y it alacritty bat curl discord fish flatpak git lsd neofetch neovim p7zip wget zsh
 echo "--------------------- base packages installed ---------------------"
 
 
