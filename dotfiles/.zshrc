@@ -1,14 +1,8 @@
 setopt autocd
-
-# Basic auto/tab complete:
-autoload -U compinit
-zstyle ':completion:*' menu select
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots)		# Include hidden files.
+setopt promptsubst
 
 # theme
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
 
 # defaults
 export EDITOR='nvim'
@@ -18,11 +12,6 @@ export VISUAL='nvim'
 alias vim='nvim'
 alias la="ls -a"
 alias g="git"
-alias ls='lsd'
-alias cat='bat'
-
-# change default directory
-cd ~
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
@@ -38,8 +27,6 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 ### End of Zinit's installer chunk
 
-export NVM_COMPLETION=true
-export NVM_LAZY_LOAD=true
 zinit light zsh-users/zsh-completions
 zinit light zdharma/fast-syntax-highlighting
-zinit light lukechilds/zsh-nvm
+zinit light jackharrisonsherlock/common

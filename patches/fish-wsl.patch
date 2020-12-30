@@ -1,0 +1,9 @@
+--- dotfiles/.config/fish/config.fish	2020-12-30 03:47:13.006115842 -0500
++++ dotfiles/.config/fish/config.fish-patch	2020-12-30 03:49:03.388109760 -0500
+@@ -9,3 +9,6 @@
+ 
+ # starship
+ starship init fish | source
++
++# change starting directory
++cd ~

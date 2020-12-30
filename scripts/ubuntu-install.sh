@@ -46,6 +46,9 @@ echo "--------------------- done ---------------------"
 echo "--------------------- installing dotfiles ---------------------"
 curl -fsSL https://starship.rs/install.sh | bash
 cp -r dotfiles/. ~/
+patch -ruN dotfiles/.zshrc < patches/zsh-wsl.patch
+patch -ruN dotfiles/.config/fish/config.fish < patches/fish-wsl.patch
+
 echo "--------------------- done ---------------------"
 
 

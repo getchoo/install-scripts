@@ -1,0 +1,12 @@
+--- dotfiles/.zshrc	2020-12-30 03:46:55.836116789 -0500
++++ dotfiles/.zshrc-patch	2020-12-30 03:48:27.597111732 -0500
+@@ -13,6 +13,9 @@
+ alias la="ls -a"
+ alias g="git"
+ 
++# change starting directory
++cd ~
++
+ ### Added by Zinit's installer
+ if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+     print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
