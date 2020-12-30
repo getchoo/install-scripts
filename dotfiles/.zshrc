@@ -1,17 +1,9 @@
-setopt autocd
-setopt promptsubst
-
-# theme
-# eval "$(starship init zsh)"
-
-# defaults
-export EDITOR='nvim'
-export VISUAL='nvim'
-
-# alias
-alias vim='nvim'
-alias la="ls -a"
-alias g="git"
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
@@ -27,6 +19,29 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 ### End of Zinit's installer chunk
 
+# plugins
 zinit light zsh-users/zsh-completions
 zinit light zdharma/fast-syntax-highlighting
-zinit light jackharrisonsherlock/common
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+
+setopt promptsubst
+setopt autocd
+
+#tab completion
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)
+
+# defaults
+export EDITOR='nvim'
+export VISUAL='nvim'
+
+# alias
+alias vim='nvim'
+alias la='ls -a'
+alias g='git'
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
