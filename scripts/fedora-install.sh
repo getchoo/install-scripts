@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 
 
@@ -42,24 +42,23 @@ echo "--------------------- done ---------------------"
 ## change shells
 
 echo "--------------------- changing shell ---------------------"
-chsh -s /usr/bin/fish
+chsh -s /usr/bin/zsh
 echo "--------------------- done ---------------------"
-
-
-
-## install shell package managers
-echo "--------------------- installing shell plugin managers ---------------------"
-curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh | zsh
-curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-echo "--------------------- done ---------------------"
-
 
 
 ## install dotfiles
 
 echo "--------------------- installing dotfiles ---------------------"
-curl -fsSL https://starship.rs/install.sh | bash
 cp -r dotfiles/. ~/
+rm -rf ~/.config/dunst
+rm -rf ~/.config/leftwm
+rm -rf ~/.config/xorg
+rm -rf ~/.xinitrc
+rm -rf ~/.xprofile
+rm -rf ~/LICENSE
+rm -rf ~/pkglist
+rm -rf ~/.git
+rm -rf ~/.gitmodules
 echo "--------------------- done ---------------------"
 
 

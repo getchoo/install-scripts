@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 
 
@@ -13,29 +13,32 @@ echo "--------------------- system upgraded ---------------------"
 ## install packages i like
 
 echo "--------------------- installing packages ---------------------"
-sudo apt -y install curl fish git neofetch neovim ppa-purge wget zsh
+sudo apt -y install curl git neofetch neovim ppa-purge wget zsh
 echo "--------------------- packages installed ---------------------"
 
 
 ## change shells
 
 echo "--------------------- changing shell ---------------------"
-chsh -s /usr/bin/fish
-echo "--------------------- done ---------------------"
-
-
-## install shell package managers
-echo "--------------------- installing shell plugin managers ---------------------"
-curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh | zsh
-curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+chsh -s /usr/bin/zsh
 echo "--------------------- done ---------------------"
 
 
 ## install dotfiles
- 
+
 echo "--------------------- installing dotfiles ---------------------"
-curl -fsSL https://starship.rs/install.sh | bash
+patch -ruN dotfiles/.zshrc < patches/zsh-wsl.patch
 cp -r dotfiles/. ~/
+rm -rf install.sh dotfiles/.config/solus
+rm -rf ~/.config/dunst
+rm -rf ~/.config/leftwm
+rm -rf ~/.config/xorg
+rm -rf ~/.xinitrc
+rm -rf ~/.xprofile
+rm -rf ~/LICENSE
+rm -rf ~/pkglist
+rm -rf ~/.git
+rm -rf ~/.gitmodules
 echo "--------------------- done ---------------------"
 
 

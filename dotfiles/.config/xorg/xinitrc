@@ -1,0 +1,2 @@
+exec dbus-launch leftwm
+sh $HOME/.config/leftwm/themes/current/up
