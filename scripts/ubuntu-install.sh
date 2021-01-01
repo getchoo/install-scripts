@@ -38,13 +38,7 @@ echo "--------------------- done ---------------------"
  
 echo "--------------------- installing dotfiles ---------------------"
 cp -r dotfiles/. ~/
-rm -rf ~/.config/dunst
-rm -rf ~/.config/leftwm
-rm -rf ~/.config/xorg
-rm -rf ~/.xinitrc
-rm -rf ~/.xprofile
 rm -rf ~/LICENSE
-rm -rf ~/pkglist
 rm -rf ~/.git
 rm -rf ~/.gitmodules
 echo "--------------------- done ---------------------"
