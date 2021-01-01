@@ -1,3 +1,3 @@
-[submodule "arch-dotfiles"]
+[submodule "dotfiles"]
 	path = dotfiles
-	url = git@github.com:getchoo/arch-dotfiles.git
+	url = https://github.com/getchoo/arch-dotfiles.git

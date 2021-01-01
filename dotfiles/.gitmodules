@@ -1,6 +1,0 @@
-[submodule ".config/leftwm/themes/leftwm-coffee"]
-	path = .config/leftwm/themes/leftwm-coffee
-	url = https://github.com/lex148/leftwm-coffee.git
-[submodule ".local/bin/zgen"]
-	path = .local/bin/zgen
-	url = https://github.com/tarjoilija/zgen.git
