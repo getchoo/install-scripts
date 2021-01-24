@@ -13,7 +13,7 @@ echo "--------------------- system upgraded ---------------------"
 ## install packages i like
 
 echo "--------------------- installing packages ---------------------"
-sudo apt -y install curl git neofetch neovim p7zip-full ppa-purge ttf-mscorefonts-installer ubuntu-restricted-extras wget zsh
+sudo apt -y install curl git neofetch neovim libreoffice-* p7zip-full ppa-purge ttf-mscorefonts-installer ubuntu-restricted-extras wget zsh
 echo "--------------------- packages installed ---------------------"
 
 
