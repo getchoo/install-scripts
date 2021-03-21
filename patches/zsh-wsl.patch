@@ -1,10 +1,10 @@
 --- a/dotfiles/.config/zsh/.zshrc
 +++ b/dotfiles/.config/zsh/.zshrc
-@@ -39,7 +39,4 @@
- alias g='git'
- alias cat='bat'
+@@ -54,4 +54,7 @@
+ # Then, source plugins and add commands to $PATH
+ zplug load
  
-+# change default directory
++# change dir
 +cd ~
 +
  eval "$(starship init zsh)"
