@@ -29,6 +29,7 @@ echo "--------------------- done ---------------------"
 echo "--------------------- installing dotfiles ---------------------"
 patch -ruN dotfiles/.zshrc < patches/zsh-wsl.patch
 cp -r dotfiles/. ~/
+rm -rf ~/patches
 rm -rf ~/LICENSE
 rm -rf ~/.git
 rm -rf ~/.gitmodules

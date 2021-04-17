@@ -13,18 +13,8 @@ echo "--------------------- system upgraded ---------------------"
 ## install packages i like
 
 echo "--------------------- installing packages ---------------------"
-sudo apt -y install curl git neofetch neovim p7zip-full ppa-purge ttf-mscorefonts-installer ubuntu-restricted-extras wget zsh
+sudo apt -y install curl git neofetch neovim p7zip-full ppa-purge ttf-mscorefonts-installer wget zsh
 echo "--------------------- packages installed ---------------------"
-
-
-## replace snap with flatpak
-
-echo "--------------------- installing flatpak apps ---------------------"
-sudo apt -y purge snapd
-sudo apt -y install flatpak gnome-software-plugin-flatpak
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub com.discordapp.Discord
-echo "--------------------- flatpak apps installed ---------------------"
 
 
 ## change shells
@@ -38,6 +28,7 @@ echo "--------------------- done ---------------------"
  
 echo "--------------------- installing dotfiles ---------------------"
 cp -r dotfiles/. ~/
+rm -rf ~/patches
 rm -rf ~/LICENSE
 rm -rf ~/.git
 rm -rf ~/.gitmodules

@@ -10,10 +10,17 @@ sudo apt -y upgrade
 echo "--------------------- system upgraded ---------------------"
 
 
+## remove packages i dont like
+
+echo "--------------------- installing packages ---------------------"
+sudo apt remove -y libreoffice-*
+echo "--------------------- packages installed ---------------------"
+
+
 ## install packages i like
 
 echo "--------------------- installing packages ---------------------"
-sudo apt -y install curl git neofetch neovim libreoffice-* p7zip-full ppa-purge ttf-mscorefonts-installer ubuntu-restricted-extras wget zsh
+sudo apt -y install curl git neovim p7zip-full ppa-purge ttf-mscorefonts-installer wget zsh
 echo "--------------------- packages installed ---------------------"
 
 

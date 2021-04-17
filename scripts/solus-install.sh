@@ -20,7 +20,7 @@ echo "--------------------- base packages removed ---------------------"
 ## add packages i do like
 
 echo "--------------------- installing packages ---------------------"
-sudo eopkg -y it alacritty bat curl discord fish flatpak git lsd neofetch neovim p7zip wget zsh
+sudo eopkg -y it curl discord git neofetch neovim p7zip wget zsh
 echo "--------------------- base packages installed ---------------------"
 
 
@@ -39,13 +39,6 @@ ln -sv ~/src/solbuild/common/Makefile.iso ~/src/solbuild/.
 echo "--------------------- done ---------------------"
 
 
-## install flathub repo
-
-echo "--------------------- installing flathub repo ---------------------"
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-echo "--------------------- flathub repo installed ---------------------"
-
-
 ## change shells
 
 echo "--------------------- changing shell ---------------------"
@@ -59,6 +52,7 @@ echo "--------------------- installing dotfiles ---------------------"
 patch -R -p1 < patches/solus.patch
 cp -r dotfiles/. ~/
 rm -rf dotfiles/.config/solus
+rm -rf ~/patches
 rm -rf ~/LICENSE
 rm -rf ~/.git
 rm -rf ~/.gitmodules
