@@ -13,7 +13,7 @@ echo "--------------------- system upgraded ---------------------"
 ## install packages i like
 
 echo "--------------------- installing packages ---------------------"
-sudo apt -y install git zsh
+sudo apt -y install curl git software-properties-common zsh
 echo "--------------------- packages installed ---------------------"
 
 
