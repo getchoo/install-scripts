@@ -32,7 +32,7 @@ echo "--------------------- done ---------------------"
 
 echo "--------------------- installing packages ---------------------"
 sudo dnf -y remove libreoffice-x11
-sudo dnf -y install curl fedy git lpf-mscore-fonts neovim p7zip wget zsh
+sudo dnf -y install neovim util-linux-user zsh
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak -y install flathub com.discordapp.Discord
 echo "--------------------- done ---------------------"
@@ -61,7 +61,7 @@ echo "--------------------- done ---------------------"
 ## install fonts
 
 echo "--------------------- installing fonts ---------------------"
-sudo wget https:/ithub.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf -P /usr/share/fonts/truetype/
+sudo wget 'https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf' -P /usr/share/fonts/truetype/
 echo "--------------------- done ---------------------"
 
 
