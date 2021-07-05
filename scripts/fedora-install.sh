@@ -1,5 +1,15 @@
 #!/bin/sh
 
+# # #
+# g3tchoo's debian server install script
+# # #
+ 
+
+## update all git submodules 
+ 
+echo "--------------------- fetching submodules ---------------------"
+git submodule update --init --recursive --remote
+echo "--------------------- submodules fetched ---------------------"
 
 
 ## append dnf.conf
@@ -10,13 +20,11 @@ echo "fastestmirror=True" | sudo tee -a /etc/dnf/dnf.conf
 echo "--------------------- done ---------------------"
 
 
-
 ## upgrade system
 
 echo "--------------------- upgrading system ---------------------"
 sudo dnf -y upgrade
 echo "--------------------- done ---------------------"
-
 
 
 ## add rpm repos
@@ -27,16 +35,14 @@ sudo dnf -y groupupdate core
 echo "--------------------- done ---------------------"
 
 
-
 ## install packages
 
 echo "--------------------- installing packages ---------------------"
 sudo dnf -y remove libreoffice-x11
-sudo dnf -y install neovim util-linux-user zsh
+sudo dnf -y install neovim util-linux-user starship zsh
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak -y install flathub com.discordapp.Discord
 echo "--------------------- done ---------------------"
-
 
 
 ## change shells
@@ -49,13 +55,9 @@ echo "--------------------- done ---------------------"
 ## install dotfiles
 
 echo "--------------------- installing dotfiles ---------------------"
-cp -r dotfiles/. ~/
-rm -rf ~/patches
-rm -rf ~/LICENSE
-rm -rf ~/.git
-rm -rf ~/.gitmodules
+cp -r dotfiles/. ~
+$HOME/.local/bin/clean-home
 echo "--------------------- done ---------------------"
-
 
 
 ## install fonts
@@ -65,13 +67,11 @@ sudo wget 'https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack
 echo "--------------------- done ---------------------"
 
 
-
 #remove orphans
 
 echo "--------------------- removing orphans ---------------------"
 sudo dnf -y autoremove
 echo "--------------------- orphan packages deleted ---------------------"
-
 
 
 

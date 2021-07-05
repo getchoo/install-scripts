@@ -1,6 +1,0 @@
---- a/dotfiles/.config/solus/packager
-+++ b/dotfiles/.config/solus/packager
-@@ -1,3 +0,0 @@
--[Packager]
--Name=Seth Flynn
--Email=sethaflynn@gmail.com

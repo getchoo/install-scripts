@@ -1,5 +1,15 @@
 #!/bin/sh
 
+# # #
+# g3tchoo's debian server install script
+# # #
+
+
+## update all git submodules
+
+echo "--------------------- fetching submodules ---------------------"
+git submodule update --init --recursive --remote
+echo "--------------------- submodules fetched ---------------------"
 
 
 ## inital upgrade
@@ -27,11 +37,8 @@ echo "--------------------- done ---------------------"
 ## install dotfiles
 
 echo "--------------------- installing dotfiles ---------------------"
-cp -r dotfiles/. ~/
-rm -rf ~/patches
-rm -rf ~/LICENSE
-rm -rf ~/.git
-rm -rf ~/.gitmodules
+cp -r dotfiles/. ~
+$HOME/.local/bin/clean-home
 echo "--------------------- done ---------------------"
 
 

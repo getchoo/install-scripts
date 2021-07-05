@@ -1,6 +1,15 @@
 #!/bin/sh
 
-
+# # #
+# g3tchoo's debian server install script
+# # #
+ 
+## update all git submodules 
+ 
+echo "--------------------- fetching submodules ---------------------"
+git submodule update --init --recursive --remote
+echo "--------------------- submodules fetched ---------------------"
+ 
 
 ## upgrade system
 
@@ -24,21 +33,6 @@ sudo eopkg -y it curl discord git neofetch neovim p7zip wget zsh
 echo "--------------------- base packages installed ---------------------"
 
 
-## setup packager stuff
-
-echo "--------------------- setting up packager enviorment ---------------------"
-sudo eopkg it -c system.devel
-sudo eopkg it solbuild solbuild-config-unstable
-sudo solbuild init
-sudo solbuild update
-mkdir -p ~/src/solbuild
-git clone https://dev.getsol.us/source/common.git ~/src/solbuild/common
-ln -sv ~/src/solbuild/common/Makefile.common ~/src/solbuild/.
-ln -sv ~/src/solbuild/common/Makefile.toplevel ~/src/solbuild/Makefile
-ln -sv ~/src/solbuild/common/Makefile.iso ~/src/solbuild/.
-echo "--------------------- done ---------------------"
-
-
 ## change shells
 
 echo "--------------------- changing shell ---------------------"
@@ -49,13 +43,8 @@ echo "--------------------- done ---------------------"
 ## install dotfiles
 
 echo "--------------------- installing dotfiles ---------------------"
-patch -R -p1 < patches/solus.patch
-cp -r dotfiles/. ~/
-rm -rf dotfiles/.config/solus
-rm -rf ~/patches
-rm -rf ~/LICENSE
-rm -rf ~/.git
-rm -rf ~/.gitmodules
+cp -r dotfiles/. ~
+$HOME/.local/bin/clean-home
 echo "--------------------- done ---------------------"
 
 
@@ -73,6 +62,7 @@ echo "--------------------- done ---------------------"
 echo "--------------------- cleaning up ---------------------"
 sudo eopkg -y rmo
 echo "--------------------- cleaned :) ---------------------"
+
 
 
 echo "--------------------- please reboot ---------------------" && exit 0

@@ -1,6 +1,15 @@
 #!/bin/sh
 
-
+# # #
+# g3tchoo's debian server install script
+# # #
+ 
+## update all git submodules 
+ 
+echo "--------------------- fetching submodules ---------------------"
+git submodule update --init --recursive --remote
+echo "--------------------- submodules fetched ---------------------"
+ 
 
 ## inital upgrade
 
@@ -20,7 +29,7 @@ echo "--------------------- packages installed ---------------------"
 ## install packages i like
 
 echo "--------------------- installing packages ---------------------"
-sudo apt -y install curl git neovim p7zip-full ppa-purge ttf-mscorefonts-installer wget zsh
+sudo apt -y install curl git neovim ttf-mscorefonts-installer ubuntu-restricted-extras wget zsh
 echo "--------------------- packages installed ---------------------"
 
 
@@ -35,16 +44,14 @@ echo "--------------------- done ---------------------"
  
 echo "--------------------- installing dotfiles ---------------------"
 cp -r dotfiles/. ~/
-rm -rf ~/LICENSE
-rm -rf ~/.git
-rm -rf ~/.gitmodules
+$HOME/.local/bin/clean-home
 echo "--------------------- done ---------------------"
 
 
 ## install fonts
 
 echo "--------------------- installing fonts ---------------------"
-sudo wget https:/ithub.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf -P /usr/share/fonts/truetype/
+sudo wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf -P /usr/share/fonts/truetype/
 echo "--------------------- done ---------------------"
 
 
