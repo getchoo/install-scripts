@@ -29,7 +29,7 @@ echo "--------------------- packages installed ---------------------"
 ## install packages i like
 
 echo "--------------------- installing packages ---------------------"
-sudo apt -y install neovim ttf-mscorefonts-installer ubuntu-restricted-extras zsh
+sudo apt -y install bat exa neovim ttf-mscorefonts-installer ubuntu-restricted-extras zsh
 echo "--------------------- packages installed ---------------------"
 
 
