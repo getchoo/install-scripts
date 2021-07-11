@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # # #
-# g3tchoo's debian server install script
+# g3tchoo's fedora install script
 # # #
  
 

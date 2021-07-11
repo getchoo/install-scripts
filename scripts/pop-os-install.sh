@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # # #
-# g3tchoo's debian server install script
+# g3tchoo's pop os install script
 # # #
  
 ## update all git submodules 
@@ -29,7 +29,7 @@ echo "--------------------- packages installed ---------------------"
 ## install packages i like
 
 echo "--------------------- installing packages ---------------------"
-sudo apt -y install curl git neovim ttf-mscorefonts-installer ubuntu-restricted-extras wget zsh
+sudo apt -y install neovim ttf-mscorefonts-installer ubuntu-restricted-extras zsh
 echo "--------------------- packages installed ---------------------"
 
 
